@@ -1,3 +1,8 @@
+//
+//apply from: "${System.properties['user.home']}/extensions.gradle"
+//
+
+
 buildscript {
     ext.kotlin_version = '1.7.10'
     repositories {
