@@ -118,8 +118,8 @@ class MakeChangesDBM{
     return result;
   }
 
-  getDataInsideASpesificKey() async {
-    CollectionReference doc = FirebaseFirestore.instance.collection("besoes");
+  getDataInsideASpesificKey(collectionName) async {
+    CollectionReference doc = FirebaseFirestore.instance.collection(collectionName);
     await doc.where("age",isGreaterThanOrEqualTo: 20).get().then((value) {
       value.docs.forEach((element) {
         if (kDebugMode) {
@@ -143,12 +143,34 @@ class MakeChangesDBM{
 
     });
   }
-  void addValueToaWebsite(pass,email,userId,collectionName,websiteName) async {
-    // Replace 'Xv4Yac4wxxfM91uDknWGKA6nf4m1' with the ID of your desired document
+  void addValueToaWebsite(pass,email,userId,beboLevel,googleLevel,webowebolevel) async {
+    // will receive the value that will be added to the google level
+    //this function will add data to googleLevel level
+
+    // beboLevel      userIdLevel webowebolevel  googleLevel randomKeyLevel
+    //     //            //               //        //           //
+    //beboLevel   >> aksjdfhalskdfj >>  webowebo >> google { "randomid": {
+    //                                           //
+    //                                           //                       "theword": {
+    //                                           //                       "translation": "thetranslation",
+    //                                           //                        "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //            }
+    //                                           >>  github { "randomid": {
+    //                                           //
+    //                                           //                         "theword": {
+    //                                           //                         "translation": "thetranslation",
+    //                                           //                          "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //               }
+
+
     String documentId = userId;
 
     // Get a reference to the document you want to update
-    DocumentReference documentRef = FirebaseFirestore.instance.collection(collectionName).doc(documentId);
+    DocumentReference documentRef = FirebaseFirestore.instance.collection(beboLevel).doc(documentId);
 
 
     // Fetch the current data
@@ -164,15 +186,15 @@ class MakeChangesDBM{
     Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
 
     // Check if the 'websites' map exists
-    if (data['websites'] == null) {
+    if (data[webowebolevel] == null) {
       // If 'websites' map doesn't exist, create it with the 'for_test' key
-      data['websites'] = {'for_test': {}};
+      data[webowebolevel] = {'for_test': {}};
     }
 
     // Get the 'for_test' map
-    appendDataToDatabase({"name": websiteName, "pass": pass,"email_phone":email},websiteName);
+    appendDataToDatabase({"name": googleLevel, "pass": pass,"email_phone":email},googleLevel,beboLevel,webowebolevel);
   }
-  addNewPass(nameOrGmail,pass,email)async{
+  addNewPass(nameOrGmail,pass,email,beboLevel,webowebolevel)async{
     // print("this is the nameOrGmail = ($nameOrGmail)");
     // print("this is the pass = ($pass)");
     // print("this is the email = ($email)");
@@ -180,7 +202,7 @@ class MakeChangesDBM{
 
 
     try {
-      DocumentSnapshot documentSnapshot = await _firestore.collection('besoes').doc(_userId).get();
+      DocumentSnapshot documentSnapshot = await _firestore.collection(beboLevel).doc(_userId).get();
       if (documentSnapshot.exists) {
         Map<String, dynamic> data =
         documentSnapshot.data() as Map<String, dynamic>;
@@ -189,7 +211,7 @@ class MakeChangesDBM{
         if (data['websites'] != null && data['websites'][nameOrGmail] != null) {
 
           // print("Key exists: ${data['websites'][nameOrGmail]}");
-          await appendDataToDatabase({"name": nameOrGmail, "pass": pass,"email_phone":email},nameOrGmail);
+          await appendDataToDatabase({"name": nameOrGmail, "pass": pass,"email_phone":email},nameOrGmail,beboLevel,webowebolevel);
 
 
 
@@ -223,10 +245,36 @@ class MakeChangesDBM{
     }
   }
 
-  Future<void> appendDataToDatabase(value,key) async {
+  Future<void> appendDataToDatabase(value,googleLevel,beboLevel,webowebolevel) async {
+    // will receive the value that will be added to the google level
+    //this function will add data to googleLevel level
+
+    // beboLevel      userIdLevel webowebolevel  googleLevel randomKeyLevel
+    //     //            //               //        //           //
+    //beboLevel   >> aksjdfhalskdfj >>  webowebo >> google { "randomid": {
+    //                                           //
+    //                                           //                       "theword": {
+    //                                           //                       "translation": "thetranslation",
+    //                                           //                        "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //            }
+    //                                           >>  github { "randomid": {
+    //                                           //
+    //                                           //                         "theword": {
+    //                                           //                         "translation": "thetranslation",
+    //                                           //                          "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //               }
+
+
+
+
+
     try {
       // Reference to the document containing the 'websites' map
-      DocumentReference documentRef = _firestore.collection('besoes').doc(_userId);
+      DocumentReference documentRef = _firestore.collection(beboLevel).doc(_userId);
 
       // Get the current data of the document
       DocumentSnapshot documentSnapshot = await documentRef.get();
@@ -234,24 +282,24 @@ class MakeChangesDBM{
       if (documentSnapshot.exists) {
         // Extract the 'websites' map from the current data
         Map<String, dynamic> data = documentSnapshot.data() as Map<String, dynamic>;
-        Map<String, dynamic> websites = data['websites'];
+        Map<String, dynamic> websites = data[webowebolevel];
 
         // Check if 'google' exists in the 'websites' map
-        if (websites.containsKey(key)) {
+        if (websites.containsKey(googleLevel)) {
           // Extract the existing value of 'google' (which is another map)
-          Map<String, dynamic> googleValue = websites[key];
+          Map<String, dynamic> googleValue = websites[googleLevel];
 
           // Add the new data to the existing 'google' map
           googleValue[generateRandomKey()] = value;
 
           // Update the 'websites' map in the Firestore document
-          await documentRef.update({'websites': websites});
+          await documentRef.update({webowebolevel: websites});
           if (kDebugMode) {
-            print("Appended data to $key successfully.");
+            print("Appended data to $googleLevel successfully.");
           }
         } else {
           if (kDebugMode) {
-            print("$key field does not exist.");
+            print("$googleLevel field does not exist.");
           }
         }
       } else {
@@ -266,26 +314,69 @@ class MakeChangesDBM{
     }
   }
 
-  Future <void> deleteMap(collectionName,mapName)async{
+  Future <void> deleteMap(userId,webowebolevel,googleLevel,collectionName)async{
+    //this function will remove the googleLevel level
+
+    // beboLevel      userIdLevel webowebolevel  googleLevel randomKeyLevel
+    //     //            //               //        //           //
+    //beboLevel   >> aksjdfhalskdfj >>  webowebo >> google { "randomid": {
+    //                                           //
+    //                                           //                       "theword": {
+    //                                           //                       "translation": "thetranslation",
+    //                                           //                        "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //            }
+    //                                           >>  github { "randomid": {
+    //                                           //
+    //                                           //                         "theword": {
+    //                                           //                         "translation": "thetranslation",
+    //                                           //                          "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //               }
+
     getCurrentUser();
 
     DocumentReference documentReference =
-    FirebaseFirestore.instance.collection(collectionName).doc(_userId);
+    FirebaseFirestore.instance.collection(collectionName).doc(userId);
 
     // Update the document by removing the 'for_test' field
 
     await documentReference.update({
-      'websites.$mapName': FieldValue.delete(),
+      '$webowebolevel.$googleLevel': FieldValue.delete(),
     });
   }
 
 
-  Future <void> deleteKeyinMap(userId,collectionName,mapName,key) async {
-    // Replace 'Xv4Yac4wxxfM91uDknWGKA6nf4m1' with the ID of your desired document
+  Future <void> deleteKeyinMap(userId,webowebolevel,beboLevel,googleLevel,randomKeyLevel) async {
+    //this function will remove the randomKeyLevel level
+
+
+    // beboLevel      userIdLevel webowebolevel  googleLevel randomKeyLevel
+    //     //            //               //        //           //
+    //beboLevel   >> aksjdfhalskdfj >>  webowebo >> google { "randomid": {
+    //                                           //
+    //                                           //                       "theword": {
+    //                                           //                       "translation": "thetranslation",
+    //                                           //                        "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //            }
+    //                                           >>  github { "randomid": {
+    //                                           //
+    //                                           //                         "theword": {
+    //                                           //                         "translation": "thetranslation",
+    //                                           //                          "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //               }
+
+
     String documentId = userId;
 
     // Get a reference to the document you want to update
-    DocumentReference documentRef = FirebaseFirestore.instance.collection(collectionName).doc(documentId);
+    DocumentReference documentRef = FirebaseFirestore.instance.collection(beboLevel).doc(documentId);
 
     // Fetch the current data
     DocumentSnapshot snapshot = await documentRef.get();
@@ -299,15 +390,15 @@ class MakeChangesDBM{
     // Get the data map from the snapshot
     Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
     if (kDebugMode) {
-      print(mapName);
-      print(data['websites'][key]);
+      print(googleLevel);
+      print(data[webowebolevel][randomKeyLevel]);
     }
 
 
     // Check if the 'for_test' key exists in the 'websites' map
-    if (data['websites'] != null && data['websites'][mapName] != null) {
+    if (data[webowebolevel] != null && data[webowebolevel][googleLevel] != null) {
       // Remove the 'for_test' key from the 'websites' map
-      data['websites'][mapName].remove(key);
+      data[webowebolevel][googleLevel].remove(randomKeyLevel);
 
       // Update the document with the modified data
       await documentRef.update(data);
