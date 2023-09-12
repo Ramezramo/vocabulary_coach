@@ -118,33 +118,8 @@ class MakeChangesDBM{
     return result;
   }
 
-  getDataInsideASpesificKey(collectionName) async {
-    CollectionReference doc = FirebaseFirestore.instance.collection(collectionName);
-    await doc.where("age",isGreaterThanOrEqualTo: 20).get().then((value) {
-      value.docs.forEach((element) {
-        if (kDebugMode) {
-          print(element.data());
-        }
-      });
-    });
-  }
-
-  void getDateDoc() async {
-    // in this will search by decument
-    DocumentReference doc = FirebaseFirestore.instance.collection("besoes").doc("names_of_websites");
-    await doc.get().then((value) {
-
-      if (kDebugMode) {
-        // print("users"*30);
-        print(value.data());
-        print(value.exists);// for checking if it existed or no
-        print(value.id);
-      }
-
-    });
-  }
   void addValueToaWebsite(pass,email,userId,beboLevel,googleLevel,webowebolevel) async {
-    // will receive the value that will be added to the google level
+
     //this function will add data to googleLevel level
 
     // beboLevel      userIdLevel webowebolevel  googleLevel randomKeyLevel
@@ -194,10 +169,28 @@ class MakeChangesDBM{
     // Get the 'for_test' map
     appendDataToDatabase({"name": googleLevel, "pass": pass,"email_phone":email},googleLevel,beboLevel,webowebolevel);
   }
-  addNewPass(nameOrGmail,pass,email,beboLevel,webowebolevel)async{
-    // print("this is the nameOrGmail = ($nameOrGmail)");
-    // print("this is the pass = ($pass)");
-    // print("this is the email = ($email)");
+  addNew_word_TorandomKeyLevel(nameOrGmail,pass,email,beboLevel,webowebolevel)async{
+
+    //this function will add data to googleLevel level
+
+    // beboLevel      userIdLevel webowebolevel  googleLevel randomKeyLevel
+    //     //            //               //        //           //
+    //beboLevel   >> aksjdfhalskdfj >>  webowebo >> google { "randomid": {
+    //                                           //
+    //                                           //                       "theword": {
+    //                                           //                       "translation": "thetranslation",
+    //                                           //                        "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //            }
+    //                                           >>  github { "randomid": {
+    //                                           //
+    //                                           //                         "theword": {
+    //                                           //                         "translation": "thetranslation",
+    //                                           //                          "time": "123456789"
+    //                                           //                               }
+    //                                           //                      }
+    //                                           //               }
 
 
 
@@ -208,7 +201,7 @@ class MakeChangesDBM{
         documentSnapshot.data() as Map<String, dynamic>;
         // print(data);
 
-        if (data['websites'] != null && data['websites'][nameOrGmail] != null) {
+        if (data[webowebolevel] != null && data[webowebolevel][nameOrGmail] != null) {
 
           // print("Key exists: ${data['websites'][nameOrGmail]}");
           await appendDataToDatabase({"name": nameOrGmail, "pass": pass,"email_phone":email},nameOrGmail,beboLevel,webowebolevel);
@@ -219,9 +212,9 @@ class MakeChangesDBM{
           // The key 'google' doesn't exist in the 'websites' map
           // print("will add it to data base");
           DocumentReference documentReference =
-          _firestore.collection('besoes').doc(_userId);
+          _firestore.collection(beboLevel).doc(_userId);
           await documentReference.update({
-            "websites.$nameOrGmail": {
+            "$webowebolevel.$nameOrGmail": {
               generateRandomKey(): {
                 "name": nameOrGmail,
                 "pass": pass,
@@ -411,5 +404,32 @@ class MakeChangesDBM{
       }
     }
   }
+
+// getDataInsideASpesificKey(collectionName) async {
+//   CollectionReference doc = FirebaseFirestore.instance.collection(collectionName);
+//   await doc.where("age",isGreaterThanOrEqualTo: 20).get().then((value) {
+//     value.docs.forEach((element) {
+//       if (kDebugMode) {
+//         print(element.data());
+//       }
+//     });
+//   });
+// }
+
+// void getDateDoc() async {
+//   // in this will search by decument
+//   DocumentReference doc = FirebaseFirestore.instance.collection("besoes").doc("names_of_websites");
+//   await doc.get().then((value) {
+//
+//     if (kDebugMode) {
+//       // print("users"*30);
+//       print(value.data());
+//       print(value.exists);// for checking if it existed or no
+//       print(value.id);
+//     }
+//
+//   });
+// }
+
 
 }
