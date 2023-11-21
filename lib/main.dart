@@ -1,93 +1,80 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:vocabulary_coach/pages/addingNewWordPage.dart';
-import 'package:vocabulary_coach/pages/wordMemorization.dart';
-import 'CONSTANTS/colorConstants.dart';
-import 'databaseXoperations/MakeChangesInDataBase.dart';
+
+// import 'package:vocabulary_coach/srcW/CONSTANTS/colorConstants.dart';
+// import 'package:vocabulary_coach/srcW/pages/addingNewWordPage.dart';
+// import 'package:vocabulary_coach/srcW/pages/wordMemorization.dart';
+// import 'package:vocabulary_coach/srcW/pages/wordsAddedReview.dart';
+//
+// import 'core/cubit/vocab_cubet_cubit.dart';
+// import 'core/databaseXoperations/WriteOnDataBase.dart';
+import 'Features/addingNewWordFeature/presentation/manger/words_cubit/vocab_cubet_cubit.dart';
+import 'Features/addingNewWordFeature/presentation/views/addingNewWordPage.dart';
+import 'Features/homePage/presentation/views/homePageFile.dart';
+import 'Features/wordMemorization/presentation/views/wordMemorization.dart';
+import 'Features/wordsAddedReview/presentation/views/wordsAddedReview.dart';
+import 'core/utils/app_router.dart';
+import 'core/utils/colorConstants.dart';
+import 'core/utils/databaseXoperations/WriteOnDataBase.dart';
+import 'core/utils/service_locator.dart';
 import 'firebase_options.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ...
 
 MakeChangesDBM databaseClass = MakeChangesDBM();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setupServiceLocator();
   runApp(MyApp());
 }
+// import 'package:dio/dio.dart';
+//
+// void main() {
+//
+//   runApp(const appName());
+// }
 
 class MyApp extends StatelessWidget {
-
-  const MyApp({super.key});
-
-  // This widget is the rootd of your dpplication.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // title: 'Flutter Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget  {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  List pages = [
-    addWordPage(),
-    wordMemorizationPage(),
-
-  ];
-
-  int currentIndex = 0 ;
-
-  void onTap(int index){
-    setState(() {
-      currentIndex = index;
-    });
-  }
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    databaseClass.forceLogin();
-    databaseClass.settingUserId("users");
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        onTap: onTap,
-        currentIndex: currentIndex,
-        selectedItemColor: Colors.black54,
-        unselectedItemColor: Colors.grey.withOpacity(0.5),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        elevation: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add,),
-            label: 'Home',
-            backgroundColor: clr_cardColor,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book_sharp),
-            label: 'Bar',
-            backgroundColor: clr_cardColor,
-          ),
-        ],
+    return BlocProvider(
+      create: (context) => VocabCubetCubit(),
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          // scaffoldBackgroundColor: kPrimaryColor,
+          // textTheme:
+          //     GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+        ),
       ),
-      body: pages[currentIndex],
-
     );
   }
 }
+//
+// class MyApp extends StatelessWidget {
+//
+//   const MyApp({super.key});
+//
+//   // This widget is the rootd of your dpplication.
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       create: (context) => VocabCubetCubit(),
+//       child: MaterialApp(
+//         // title: 'Flutter Demo',
+//         theme: ThemeData(
+//           useMaterial3: true,
+//         ),
+//         home: const MyHomePage(title: 'Flutter Demo Home Page'),
+//       ),
+//     );
+//   }
+// }
