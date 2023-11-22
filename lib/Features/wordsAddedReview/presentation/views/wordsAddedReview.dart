@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../addingNewWordFeature/presentation/manger/words_cubit/vocab_cubet_cubit.dart';
+import '../../../addingNewWordFeature/presentation/manger/cubit/vocab_cubet_cubit.dart';
+// import '../../../addingNewWordFeature/presentation/manger/words_cubit/vocab_cubet_cubit.dart';
+
 // import '../../core/cubit/vocab_cubet_cubit.dart';
 // import '../cubit/vocab_cubet_cubit.dart';
 
