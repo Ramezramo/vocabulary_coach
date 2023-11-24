@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'Features/TranslatingAbookFeature/presentation/manager/featureCubit/getting_page_cubit.dart';
 import 'Features/addingNewWordFeature/presentation/manger/cubit/vocab_cubet_cubit.dart';
 // import 'Features/addingNewWordFeature/presentation/manger/words_cubit/vocab_cubet_cubit.dart';
 import 'Features/addingNewWordFeature/presentation/views/addingNewWordPage.dart';
 import 'Features/homePage/presentation/views/homePageFile.dart';
-import 'Features/wordMemorization/presentation/views/wordMemorization.dart';
-import 'Features/wordsAddedReview/presentation/views/wordsAddedReview.dart';
+import 'Features/wordMemorization/presentation/wordMemorization.dart';
+import 'Features/wordsAddedReview/presentation/wordsAddedReview.dart';
 
 import 'core/utils/app_router.dart';
 import 'core/utils/colorConstants.dart';
@@ -67,23 +68,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => VocabCubetCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => VocabCubetCubit()),
+        BlocProvider(create: (context) => GettingPageCubit()),
+      ],
+
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark().copyWith(
-          // scaffoldBackgroundColor: kPrimaryColor,
-          textTheme:const TextTheme(
-            bodyText1: TextStyle(color: Colors.black),
-            // bodyText2: TextStyle(color: Colors.black),
-            // headline1: TextStyle(color: Colors.black),
-            // headline2: TextStyle(color: Colors.black),
-          )
-          // GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
-
-
-    ),
+          scaffoldBackgroundColor: Color(0xFF628EEC),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(color: Colors.black87),
+            // Customize other text styles as needed
+          ),
+        ),
     )
     );
   }

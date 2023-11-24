@@ -7,13 +7,6 @@ import '../../../../core/widgets/Reuseable_Widgets_Ram/myCatButton.dart';
 import '../../../../core/widgets/Reuseable_Widgets_Ram/myCatTextField.dart';
 import '../../../../tsting.dart';
 import '../manger/cubit/vocab_cubet_cubit.dart';
-// import '../../../homePage/presentation/manger/words_cubit/vocab_cubet_cubit.dart';
-// import 'package:vocabulary_coach/Reuseable_widgets/myCatButton.dart';
-
-// import '../../core/cubit/vocab_cubet_cubit.dart';
-// import '../CONSTANTS/colorConstants.dart';
-// import '../Reuseable_widgets/myCatButton.dart';
-// import '../Reuseable_widgets/myCatTextField.dart';
 
 class addWordPage extends StatefulWidget {
   const addWordPage({Key? key}) : super(key: key);
