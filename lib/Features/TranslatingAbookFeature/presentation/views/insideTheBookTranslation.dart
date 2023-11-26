@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vocabulary_coach/Features/TranslatingAbookFeature/presentation/manager/featureCubit/getting_page_cubit.dart';
 
+import '../../../../core/widgets/skeltonloading.dart';
+
 final databaseReference = FirebaseDatabase.instance.reference();
 
 
@@ -24,28 +26,35 @@ class _InsideBookPageState extends State<InsideBookPage> {
   String collectionPath = "8I0vkfPjS7Bxiw36ImBN/ykUIOTASOjelAYHTe5Fx/";
   late String fieldName = "page1";
 
-  FirebaseFirestore db = FirebaseFirestore.instance;
+  List<String>? _thePhrases  ;
+  bool loadOrNo = true;
 
 
 
-  List<QueryDocumentSnapshot> data = [];
+  // List<QueryDocumentSnapshot> data = [];
+  Future<void> gettingData() async {
 
-  Future<void> getDataBase() async {
-    final docRef = db.collection("books").doc("8I0vkfPjS7Bxiw36ImBN");
-    docRef.get().then(
-          (DocumentSnapshot doc) {
-        final data = doc.data() as Map<String, dynamic>;
-        print(data);
-        // ...
-      },
-      onError: (e) => print("Error getting document: $e"),
-    );
+
+
+      _thePhrases =  await getDateFromDb();
+      print(_thePhrases);
+
+      setState(() {
+        loadOrNo = false;
+      });
+
+
+
   }
+
+
 
   @override
   void initState() {
     super.initState();
-    getDataBase();
+
+    gettingData();
+    // loadOrNo = ;
 
 
   }
@@ -66,24 +75,21 @@ class _InsideBookPageState extends State<InsideBookPage> {
             // TODO: implement listener
           },
           builder: (context, state) {
-            // print("234_235098");
-            // BlocProvider.of<GettingPageCubit>(context).readField();
-
-            List<String> thePhrases =
-            BlocProvider.of<GettingPageCubit>(context).getDateFromDb();
-
-            // print(ref.parent!.key); // "users"
-            // print(.length);
-            return SafeArea(
+            return loadOrNo ?  ListView.separated(
+              itemCount: 5,
+              itemBuilder: (context, index) => const NewsCardSkelton(),
+              separatorBuilder: (context, index) =>
+              const SizedBox(height: 16.0),
+            ):SafeArea(
               child: ListView.builder(
-                itemCount: thePhrases.length,
+                itemCount: _thePhrases?.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
                       onTap: () async {
-                        await getDataBase();
+                        // await getDataBase();
 
                       },
                       child: Column(
@@ -107,7 +113,7 @@ class _InsideBookPageState extends State<InsideBookPage> {
                               child: Center(
                                 child: Text(
                                   textDirection: TextDirection.rtl,
-                                  thePhrases[index],
+                                  _thePhrases![index],
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
