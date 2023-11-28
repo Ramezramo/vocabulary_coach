@@ -8,7 +8,7 @@ class MakeChangesDBM {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   late String _userId;
 
-  Future<void> _forceLogin() async {
+  Future<void> forceLogin() async {
     /// THIS WILL AUTO SIGNIN TO GET THE USER ID IN THE getCurrentUser()
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -156,7 +156,7 @@ class MakeChangesDBM {
 
   Future<void> prepareDataBaseEnvironment(
       beboLevel, weboLevel, googleLevel, googlChild) async {
-    await _forceLogin();
+    await forceLogin();
     await getCurrentUser();
     await _settingUserId(beboLevel, weboLevel, googleLevel, googlChild);
   }

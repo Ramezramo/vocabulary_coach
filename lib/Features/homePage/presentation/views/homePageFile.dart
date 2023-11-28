@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/colorConstants.dart';
 import '../../../TranslatingAbookFeature/presentation/views/translating_book.dart';
 import '../../../addingNewWordFeature/presentation/views/addingNewWordPage.dart';
+import '../../../chat_page/presentation/views/chat_page.dart';
 import '../../../wordMemorization/presentation/wordMemorization.dart';
 import '../../../wordsAddedReview/presentation/wordsAddedReview.dart';
 
@@ -20,8 +21,9 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
   List<Widget> pages = [
     const addWordPage(),
     const wordMemorizationPage(),
-    WordsAdded(),
+    const WordsAdded(),
     const translatingBookMain(),
+
   ];
 
   int currentIndex = 0;
