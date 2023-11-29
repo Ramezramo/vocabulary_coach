@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vocabulary_coach/Features/TranslatingAbookFeature/presentation/manager/featureCubit/getting_page_cubit.dart';
 import '../../../../core/utils/databaseXoperations/update_data_base.dart';
 import '../../../../core/widgets/skeltonloading.dart';
-import '../../../../core/widgets/viewDataInGoodContainer.dart';
+import 'widgets/viewDataInGoodContainer.dart';
 import '../../../TranslatingAbookFeature/presentation/manager/dataBaseChangedCubit/class_check_if_there_is_change_in_db.dart';
 
 
