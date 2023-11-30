@@ -213,13 +213,13 @@ class MakeChangesDBM {
   }
 
   Future<void> addNewWordGoogleLevel(
-      theWordInGoogleLevel, translation, beboLevel, weboLevel) async {
+      theWordInGoogleLevel, translation, beboLevel, weboLevel,userId) async {
     //ok
     ///THIS FUNCTION WILL ADD A NEW WORD IN THE PLACE OF GOOGLE LEVEL
-    getCurrentUser();
+    // getCurrentUser();
     try {
       DocumentSnapshot documentSnapshot =
-          await _firestore.collection(beboLevel).doc(_userId).get();
+          await _firestore.collection(beboLevel).doc(userId).get();
       if (documentSnapshot.exists) {
         Map<String, dynamic> data =
             documentSnapshot.data() as Map<String, dynamic>;
@@ -236,7 +236,7 @@ class MakeChangesDBM {
           /// The key 'google' doesn't exist in the 'websites' map
 
           DocumentReference documentReference =
-              _firestore.collection(beboLevel).doc(_userId);
+              _firestore.collection(beboLevel).doc(userId);
           await documentReference.update({
             "$weboLevel.$theWordInGoogleLevel": {
               "translationtoarabic": translation,
@@ -265,8 +265,7 @@ class MakeChangesDBM {
     });
   }
 
-  Future<void> deleteGoogleChild(
-      googleLevel, weboLevel, beboLevel, userId, googleChild) async {
+  Future<void> deleteGoogleChild(googleLevel, weboLevel, beboLevel, userId, googleChild) async {
     getCurrentUser();
     String documentId = userId;
 

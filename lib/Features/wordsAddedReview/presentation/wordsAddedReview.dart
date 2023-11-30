@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/utils/colorConstants.dart';
 import '../../../core/utils/databaseXoperations/WriteOnDataBase.dart';
 import '../../../core/widgets/skeltonloading.dart';
 import '../../addingNewWordFeature/presentation/manger/cubit/vocab_cubet_cubit.dart';
@@ -40,7 +41,7 @@ class _WordsAddedState extends State<WordsAdded> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF628EEC),
+      backgroundColor: clr_2backGround2,
       body: BlocConsumer<VocabCubetCubit, VocabCubetState>(
         listener: (context, state) {
           // TODO: implement listener
@@ -69,11 +70,10 @@ class _WordsAddedState extends State<WordsAdded> {
                     const SizedBox(height: 16.0),
                   );
                 }
-                // List messageBubbles = [];
                 DocumentSnapshot? desiredDocument;
 
                 for (final document in snapshot.data!.docs) {
-                  if (document.id == _userID) {
+                  if (document.id == "teKESef7NCcCZwGgZzjSlfVsNgG2") {
                     desiredDocument = document;
                     break;
                   }
@@ -134,7 +134,8 @@ class _WordsAddedState extends State<WordsAdded> {
                                   children: [
                                     Text(
                                       websitesNames[index],
-                                      style: const TextStyle(fontSize: 20),
+                                      style: const TextStyle(fontSize: 20,),
+
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                     Text(

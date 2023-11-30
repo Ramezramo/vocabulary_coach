@@ -23,7 +23,6 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
     const wordMemorizationPage(),
     const WordsAdded(),
     const translatingBookMain(),
-
   ];
 
   int currentIndex = 0;
@@ -41,10 +40,10 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
+        backgroundColor: clr_2backGround2,
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: Colors.black54,
+        selectedItemColor: clr_4cardColor2,
         unselectedItemColor: Colors.grey.withOpacity(0.5),
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -53,22 +52,22 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
           BottomNavigationBarItem(
             icon: const Icon(Icons.add),
             label: 'Home',
-            backgroundColor: clr_cardColor,
+            backgroundColor: clr_7cardInButtomNav,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.access_alarms),
             label: 'Home',
-            backgroundColor: clr_cardColor,
+            backgroundColor: clr_7cardInButtomNav,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.account_balance_sharp),
             label: 'Added words',
-            backgroundColor: clr_cardColor,
+            backgroundColor: clr_7cardInButtomNav,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.menu_book_sharp),
             label: 'Bar',
-            backgroundColor: clr_cardColor,
+            backgroundColor: clr_7cardInButtomNav,
           ),
         ],
       ),

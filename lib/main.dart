@@ -5,6 +5,7 @@ import 'Features/TranslatingAbookFeature/presentation/manager/featureCubit/getti
 import 'Features/addingNewWordFeature/presentation/manger/cubit/vocab_cubet_cubit.dart';
 import 'core/utils/app_router.dart';
 
+import 'core/utils/colorConstants.dart';
 import 'core/utils/databaseXoperations/WriteOnDataBase.dart';
 import 'firebase_options.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,12 +37,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: const Color(0xFF628EEC),
-          textTheme: const TextTheme(
-            bodyText1: TextStyle(color: Colors.black87),
-            // Customize other text styles as needed
-          ),
+        theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: clr_2backGround2,
+          // textTheme:  TextTheme(
+          //   bodyText1: TextStyle(color: clr_5textColor),
+          //   // Customize other text styles as needed
+          // ),
         ),
     )
     );

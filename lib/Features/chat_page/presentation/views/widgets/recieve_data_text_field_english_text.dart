@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:vocabulary_coach/Features/chat_page/presentation/views/widgets/single_bubble_shape.dart';
 
+import '../../../../../core/utils/colorConstants.dart';
+
 class TakingUserInputWidget extends StatefulWidget {
   final String tphraseEnglish;
   final Function() onPressed;
@@ -22,7 +24,15 @@ class TakingUserInputWidget extends StatefulWidget {
 
 class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
   bool viewTranslationButton = false;
-
+  void textFieldTimer() {
+    viewTranslationButton = true;
+    Future.delayed(const Duration(seconds: 8), () {
+      // After the delay (adjust as needed), set isViewTextFeild to true
+      setState(() {
+        viewTranslationButton = false;
+      });
+    });
+  }
   // get onPressed => null;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +40,7 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
       children: [
         Material(
           elevation: 5.0,
-          color: Colors.lightBlue,
+          color: clr_4cardColor2,
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(
@@ -39,12 +49,13 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
                 controller: widget.messageSenderController ,
                 onChanged: (value) {},
                 maxLines: null,
+                style: const TextStyle(color: Colors.black87),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Enter your translation here...',
                   suffixIcon: IconButton(
                     onPressed: widget.onPressed,
-                    icon: const Icon(Icons.save),
+                    icon: const Icon(Icons.save,color: Colors.black87),
                   ),
                 ),
               ),
@@ -54,7 +65,7 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
         if (!viewTranslationButton)
           viewTranslationOrHideButton(context, "view translation", () {
             setState(() {
-              viewTranslationButton = true;
+              textFieldTimer();
             });
           })
         else
@@ -79,9 +90,9 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
   Container viewTranslationOrHideButton(
       BuildContext context, containerText, onPressed) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.lightBlue,
-        borderRadius: BorderRadius.only(
+      decoration:  BoxDecoration(
+        color: clr_4cardColor2,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
         ),
@@ -89,7 +100,7 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
       width: MediaQuery.of(context).size.width,
       child: TextButton(
         onPressed: onPressed,
-        child: Text(containerText),
+        child: Text(containerText,style: const TextStyle(color: Colors.black87)),
       ),
     );
   }

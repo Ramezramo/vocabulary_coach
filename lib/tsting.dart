@@ -20,15 +20,10 @@ main() async {
   String googleLevel = "heoolo";
   Map googlChild = {"translationtoarabic":"هولا"};
   String googleChild= "heoolo";
-  // String = "";
   ddb.prepareDataBaseEnvironment(beboLevel,weboLevel,googleLevel,googlChild);
-  // ddb.deleteGoogleLevel(googleLevel,weboLevel,beboLevel);
-  // ddb.addNewWordGoogleLevel(googleLevel, "i,", beboLevel, weboLevel);
 
+  ddb.addNewWordGoogleLevel("heoolodf","هولو",beboLevel,weboLevel,"teKESef7NCcCZwGgZzjSlfVsNgG2");
 
-  ddb.addNewWordGoogleLevel("heoolodf","هولو",beboLevel,weboLevel);
-
-  // ddb.deleteGoogleChild(googleLevel, weboLevel, beboLevel, userId,"qagvylM");
   print(abvAdjectives[1]);
   print("hello world");
 }

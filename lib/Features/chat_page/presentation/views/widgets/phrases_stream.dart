@@ -1,7 +1,22 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../chat_page.dart';
 import 'a_one_message_bubble.dart';
+
+
+String generateRandomKey() {
+  const String characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  Random random = Random();
+  String randomKey = '';
+
+  for (int i = 0; i < 20; i++) {
+    randomKey += characters[random.nextInt(characters.length)];
+  }
+
+  return randomKey;
+}
 class Messagestream extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
 
@@ -50,7 +65,7 @@ class Messagestream extends StatelessWidget {
         isViewTextFeild = false;
       }
 
-      Messagebubble messageBubble = Messagebubble(phraseArabic, isViewTextFeild,
+      Messagebubble messageBubble = Messagebubble(generateRandomKey(),phraseArabic, isViewTextFeild,
           element, theTranslationSaved, phraseEnglish);
       messageBubbles.add(messageBubble);
     }

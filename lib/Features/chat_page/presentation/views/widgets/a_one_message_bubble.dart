@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vocabulary_coach/Features/chat_page/presentation/views/widgets/recieve_data_text_field_english_text.dart';
@@ -5,18 +7,21 @@ import 'package:vocabulary_coach/Features/chat_page/presentation/views/widgets/s
 
 import '../../../../../core/utils/databaseXoperations/update_data_base.dart';
 import '../../../../TranslatingAbookFeature/presentation/manager/dataBaseChangedCubit/conge_data_base_cubit.dart';
+import '../../manager/mapContainTheMessagesWithTheRandomCode.dart';
 import '../chat_page.dart';
 
 
 
-class Messagebubble extends StatelessWidget {
+class Messagebubble extends StatefulWidget {
   final String theRandomKey;
-  final bool? isViewTextFeild;
+  bool? isViewTextFeild;
   final String text;
   final String translationToEnglish;
   final String phraseEnglish;
 
-  const Messagebubble(
+  final String bubbleId;
+
+   Messagebubble(this.bubbleId,
       this.text,
       this.isViewTextFeild,
       this.theRandomKey,
@@ -26,9 +31,19 @@ class Messagebubble extends StatelessWidget {
       }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    TextEditingController messageSenderController = TextEditingController();
+  State<Messagebubble> createState() => _MessagebubbleState();
+}
 
+
+class _MessagebubbleState extends State<Messagebubble> {
+  TextEditingController messageSenderController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    // print();
+
+    // dataBaseUpdater();
+    print(messagesRandomName[widget.bubbleId]);
 
     return Padding(
       padding: const EdgeInsets.all(10.0),
@@ -36,32 +51,46 @@ class Messagebubble extends StatelessWidget {
         children: [
           BubbleContainer(
             textDirection: TextDirection.rtl,
-            text: text,
+            text: widget.text,
             borderRadiosIsTop: "top",
           ),
-          if (isViewTextFeild!)
+          if (widget.isViewTextFeild!)
             TakingUserInputWidget(
                 onPressed: () {
                   // isViewTextFeild = false;
 
-                  updateTheUserTranslation(
-                    theRandomKey,
-                    bookNameObtained,
-                    pageNameObtained,
-                    messageSenderController.text,
-                  );
-                  BlocProvider.of<CongeDataBaseCubit>(context)
-                      .dataBAseChange();
+
+                  if (messageSenderController.text.length > 1){
+                    updateTheUserTranslation(
+                      widget.theRandomKey,
+                      bookNameObtained,
+                      pageNameObtained,
+                      messageSenderController.text,
+                    );
+                    BlocProvider.of<CongeDataBaseCubit>(context)
+                        .dataBAseChange();
+                    setState(() {
+                      widget.isViewTextFeild = false;
+                    });
+                    messagesRandomName[widget.bubbleId] = messageSenderController.text;
+
+                  }
+
+
                 },
                 messageSenderController: messageSenderController,
-                theRandomKey: theRandomKey,
-                tphraseEnglish: phraseEnglish)
-          else
+                theRandomKey: widget.theRandomKey,
+                tphraseEnglish: widget.phraseEnglish)
+          else if (messageSenderController.text.length > 1)
             BubbleContainer(
               textDirection: TextDirection.ltr,
-              text: translationToEnglish,
+              text: messagesRandomName[widget.bubbleId],
               borderRadiosIsTop: "buttom",
-            ),
+            )else BubbleContainer(
+              textDirection: TextDirection.ltr,
+              text: messagesRandomName[widget.bubbleId] ??widget.translationToEnglish,
+              borderRadiosIsTop: "buttom",
+            )
         ],
       ),
 

@@ -1,164 +1,184 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-Future dataBaseUpdater() async {
-  print("in data base updater");
+import 'package:firebase_database/firebase_database.dart';
+Future<void> dataBaseUpdater() async {
+  print("in database updater");
   FirebaseFirestore db = FirebaseFirestore.instance;
-  var washingtonRef = db.collection('users').doc('teKESef7NCcCZwGgZzjSlfVsNgG2');
+  var userDocRef = db.collection('users').doc('teKESef7NCcCZwGgZzjSlfVsNgG2');
+  // added
+  String pageNAme = "page_40";
   Map theData = {
-    "hq1pwp571tfm": {
-      "arabic_phrase": "\"\"لكن انت",
-      "english_phrase": "“But you are",
-      "count": 1,
-      "user_english_phrase":""
+    "1cpxne1lcwnv": {
+      "arabic_phrase": "كاريكاتير كما أرادوا في ساعتين",
+      "english_phrase": "comics as they wanted in two hours",
+      "user_english_phrase": "",
+      "count": 1
     },
-    "vq3vtmqww7c4": {
-      "arabic_phrase": "\"\n\"حسنًا، حافظ على هذا الموقف ولن تتعلم شيئًا",
-      "english_phrase": "” “Well, \nkeep that attitude and you’ll learn nothing",
-      "count": 2,
-      "user_english_phrase":""
+    "avnd2zb54oss": {
+      "arabic_phrase": "لقد كانت صفقة بالنسبة لهم منذ أ\nتبلغ تكلفة كل قصة كوميدية 10 سنتات، ويمكنهم قراءة خمسة أو ستة سنتات في ساعتين",
+      "english_phrase": "It was a bargain for them since a\ncomic cost 10 cents each, and they could read five or six in two hours",
+      "user_english_phrase": "",
+      "count": 2
     },
-    "a51fkrtxnrfc": {
-      "arabic_phrase": "حافظ على الموقف القائل بأنني المشكلة،\n وما هي الخيارات المتاحة لك؟\n\"حسنًا، إذا لم تدفع لي المزيد أو تظهر لي المزيد من الاحترام وتعلمني،\n فسوف أستقيل\"",
-      "english_phrase": "Keep the attitude that I’m the problem ,\nand what choices do you have?”\n“Well, if you don’t pay me more or show me more respect and teach me, \nI’ll quit",
-      "count": 3,
-      "user_english_phrase":""
+    "piwetatpucsi": {
+      "arabic_phrase": "ستقوم أخت مايك بفحص الأطفال أثناء مغادرتهم للتأكد من أنهم\nلم نستعير أي كتب هزلية",
+      "english_phrase": "Mike’s sister would check the kids as they left to make sure they\nweren’t borrowing any comic books",
+      "user_english_phrase": "",
+      "count": 3
     },
-    "r6vkpfrjxouz": {
-      "arabic_phrase": "قال الأب الغني: \"حسنًا\"",
-      "english_phrase": "”\n“Well put,” rich dad said",
-      "count": 4,
-      "user_english_phrase":""
+    "7ir6t2s8iwbe": {
+      "arabic_phrase": "كما أنها احتفظت بالكتب وقطع الأشجار\nفي عدد الأطفال الذين يظهرون كل يوم، ومن هم، وأي منهم\nالتعليقات التي قد تكون لديهم",
+      "english_phrase": "She also kept the books, logging\nin how many kids showed up each day, who they were, and any\ncomments they might have",
+      "user_english_phrase": "",
+      "count": 4
     },
-    "33v737wjasq6": {
-      "arabic_phrase": "\"وهذا بالضبط ما يفعله معظم الناس",
-      "english_phrase": "“And that’s exactly what most people do",
-      "count": 5,
-      "user_english_phrase":""
+    "x67d8do6cl30": {
+      "arabic_phrase": "لقد كان متوسط ​​أجري أنا ومايك 9",
+      "english_phrase": "Mike and I averaged \$9",
+      "user_english_phrase": "",
+      "count": 5
     },
-    "91fes9ncvi42": {
-      "arabic_phrase": "لقد استقالوا وذهبوا للبحث عن وظيفة أخرى، وفرصة أفضل\n، وأجر أعلى،\n معتقدين في الواقع أن هذا سيحل المشكلة",
-      "english_phrase": "Th ey quit and go looking for another job, a better opportunity, and higher pay, actually thinking that this will solve the problem",
-      "count": 6,
-      "user_english_phrase":""
+    "n766f7fugxcn": {
+      "arabic_phrase": "50 دولارًا في الأسبوع\nعلى مدى ثلاثة أشهر",
+      "english_phrase": "50 per week\nover a three-month period",
+      "user_english_phrase": "",
+      "count": 6
     },
-    "nm0n506ntpkk": {
-      "arabic_phrase": "وفي أغلب الحالات لن يحدث ذلك",
-      "english_phrase": "In most cases, it won’t",
-      "count": 7,
-      "user_english_phrase":""
+    "lih93yprkpo6": {
+      "arabic_phrase": "كنا ندفع لأخته دولارًا واحدًا في الأسبوع و\nسمحت لها بقراءة القصص المصورة مجانًا، وهو ما نادرًا ما فعلته منذ ذلك الحين\nكان يدرس دائما",
+      "english_phrase": "We paid his sister one dollar a week and\nallowed her to read the comics for free, which she rarely did since she\nwas always studying",
+      "user_english_phrase": "",
+      "count": 7
     },
-    "8vzmg0b05xzf": {
-      "arabic_phrase": "\"\n\"اذا ماذا يجب أن أفعل؟\" انا سألت",
-      "english_phrase": "”\n“So what should I do?” I asked",
-      "count": 8,
-      "user_english_phrase":""
+    "sh1p266qu3rv": {
+      "arabic_phrase": "حافظت أنا ومايك على اتفاقيتنا من خلال العمل في المتجر كل يوم\nالسبت وجمع كل الكتب المصورة من المتاجر المختلفة",
+      "english_phrase": "Mike and I kept our agreement by working in the store every\nSaturday and collecting all the comic books from the different stores",
+      "user_english_phrase": "",
+      "count": 8
     },
-    "eukjeeojpjk5": {
-      "arabic_phrase": "\"فقط خذ هذه العشرة سنتات في الساعة وابتسم؟\"\nابتسم الأب الغني",
-      "english_phrase": "“Just take this measly 10 cents an hour and smile?”\nRich dad smiled",
-      "count": 9,
-      "user_english_phrase":""
+    "o167r0qgl9ms": {
+      "arabic_phrase": "لقد حافظنا على اتفاقنا مع الموزع بعدم بيع أي كتاب فكاهي\nكتب",
+      "english_phrase": "We kept our agreement to the distributor by not selling any comic\nbooks",
+      "user_english_phrase": "",
+      "count": 9
     },
-    "27gufrzq70am": {
-      "arabic_phrase": "\"هذا ما يفعله الآخرون",
-      "english_phrase": "“T h at’s what the other people do",
-      "count": 10,
-      "user_english_phrase":""
+    "wnghyxblv2g3": {
+      "arabic_phrase": "لقد أحرقناها عندما أصبحت ممزقة للغاية",
+      "english_phrase": "We burned them once they got too tattered",
+      "user_english_phrase": "",
+      "count": 10
     },
-    "cq6qzrmjjhto": {
-      "arabic_phrase": "ولكن هذا هو كل ما يفعلونه، حيث ينتظرون الزيادة معتقدين أن المزيد من المال سيحل مشاكلهم",
-      "english_phrase": "But that’s all they do, waiting for a raise thinking that more money will solve their problems",
-      "count": 11,
-      "user_english_phrase":""
+    "dw0t6aray6pm": {
+      "arabic_phrase": "لقد حاولنا الفتح\nمكتب فرعي، ولكن لم نتمكن أبدًا من العثور على شخص جدير بالثقة تمامًا\nومخصصة كأخت مايك",
+      "english_phrase": "We tried opening\na branch office, but we could never quite find someone as trustworthy\nand dedicated as Mike’s sister",
+      "user_english_phrase": "",
+      "count": 11
     },
-    "ftndzgi7xrfi": {
-      "arabic_phrase": "معظمهم يقبلون ذلك فحسب، والبعض يأخذ وظيفة ثانية ويعملون بجدية أكبر، لكنهم يقبلون مرة أخرى راتبًا صغيرًا",
-      "english_phrase": "Most just accept it, and some take a second job working harder, but again accepting a small paycheck",
-      "count": 12,
-      "user_english_phrase":""
+    "wuzg6ybs8tvs": {
+      "arabic_phrase": "في سن مبكرة، اكتشفنا مدى صعوبة ذلك\nكان العثور على موظفين جيدين",
+      "english_phrase": "At an early age, we found out how hard\nit was to find good staff",
+      "user_english_phrase": "",
+      "count": 12
     },
-    "z2g03pjh9qcr": {
-      "arabic_phrase": "جلست أحدق في الأرض،\n وبدأت أفهم الدرس الذي كان أبي الغني يقدمه لي",
-      "english_phrase": "” I sat staring at the fl oor, beginning to understand the lesson rich dad was presenting",
-      "count": 13,
-      "user_english_phrase":""
+    "yg897yxdatvj": {
+      "arabic_phrase": "بعد ثلاثة أشهر من افتتاح المكتبة لأول مرة، اندلع شجار\nالغرفة",
+      "english_phrase": "Three months after the library first opened, a fight broke out in\nthe room",
+      "user_english_phrase": "",
+      "count": 13
     },
-    "r7bt6cdgioqr": {
-      "arabic_phrase": "لقد شعرت أنه كان طعم الحياة",
-      "english_phrase": "I could sense it was a taste of life",
-      "count": 14,
-      "user_english_phrase":""
+    "nwu1ph4bbeeo": {
+      "arabic_phrase": "قام بعض المتنمرين من حي آخر بدفعهم\nفي الطريق، واقترح والد مايك أن نغلق العمل",
+      "english_phrase": "Some bullies from another neighborhood pushed their\nway in, and Mike’s dad suggested we shut down the business",
+      "user_english_phrase": "",
+      "count": 14
     },
-    "u3hmuzdspeek": {
-      "arabic_phrase": "وأخيراً نظرت إلى الأعلى وسألته: \"إذن ما الذي سيحل المشكلة؟\"\n\"هذا هو،\n\" قال وهو يميل إلى الأمام في كرسيه ويربت على رأسي بلطف",
-      "english_phrase": "Finally, I looked up and asked, “So what will solve the problem?”\n“T h is,” he said, leaning forward in his chair and tapping me gently on the head",
-      "count": 15,
-      "user_english_phrase":""
+    "b394y7wqdowi": {
+      "arabic_phrase": "لذا\nتم إغلاق أعمالنا في مجال الكتب المصورة، وتوقفنا عن العمل\nأيام السبت في المتجر",
+      "english_phrase": "So\nour comic-book business shut down, and we stopped working on\nSaturdays at the convenience store",
+      "user_english_phrase": "",
+      "count": 15
     },
-    "mgb2xyhsqvcf": {
-      "arabic_phrase": "\"هناك أشياء بين أذنيك",
-      "english_phrase": "“This stuff between your ears",
-      "count": 16,
-      "user_english_phrase":""
+    "qn56ryq0oqx0": {
+      "arabic_phrase": "لكن الأب الغني كان متحمسًا لأنه\nكان لديه أشياء جديدة يريد أن يعلمنا إياها",
+      "english_phrase": "But rich dad was excited because\nhe had new things he wanted to teach us",
+      "user_english_phrase": "",
+      "count": 16
     },
-    "y5daj5o09xib": {
-      "arabic_phrase": "\"\nفي تلك اللحظة، شارك أبي الغني وجهة النظر المحورية التي فصلته عن موظفيه وأبي الفقير،\n وقادته إلى أن يصبح في النهاية واحدًا من أغنى الرجال في هاواي،\n بينما كان والدي المتعلم تعليمًا عاليًا والفقير يعاني ماليًا طوال الوقت",
-      "english_phrase": "”\nIt was at that moment that rich dad shared the pivotal point of view that separated him from his employees and my poor dad—and led him to eventually become one of the richest men in Hawaii, while my highly educated but poor dad struggled fi nancially all his life",
-      "count": 17,
-      "user_english_phrase":""
+    "a7xw34h2onu3": {
+      "arabic_phrase": "لقد كان سعيدًا لأننا\nلقد تعلمنا درسنا الأول جيدًا: لقد تعلمنا كيف نجعل المال يعمل\nلنا",
+      "english_phrase": "He was happy because we\nhad learned our first lesson so well: We learned to make money work\nfor us",
+      "user_english_phrase": "",
+      "count": 17
     },
-
-    "4fmu1ob3tc9a": {
-      "arabic_phrase": "لقد كانت وجهة نظر فريدة هي التي أحدثت كل الفارق على مدى الحياة",
-      "english_phrase": "It was a singular point of view that made all the difference over a lifetime ",
-      "count": 19,
-      "user_english_phrase":""
+    "42mqb79b5ik8": {
+      "arabic_phrase": "وبسبب عدم حصولنا على أجر مقابل عملنا في المتجر، اضطررنا لذلك\nلاستخدام مخيلتنا لتحديد فرصة لكسب المال",
+      "english_phrase": "By not getting paid for our work at the store, we were forced\nto use our imaginations to identify an opportunity to make money",
+      "user_english_phrase": "",
+      "count": 18
     },
-    "lyimnvmzhbwk": {
-      "arabic_phrase": "وقد شرح الأب الغني وجهة النظر هذه مراراً وتكراراً،\n وهو ما أسميه الدرس الأول: الفقراء والطبقة الوسطى يعملون من أجل المال",
-      "english_phrase": " Rich Father has repeatedly explained this point of view, which I call lesson number one: The poor and the middle class work for money  ",
-      "count": 20,
-      "user_english_phrase":""
+    "hagchdv5tfb8": {
+      "arabic_phrase": "عندما بدأنا عملنا الخاص، مكتبة الكتب المصورة، وصلنا إلى هناك\nالتحكم في مواردنا المالية، وعدم الاعتماد على صاحب العمل",
+      "english_phrase": "By starting our own business, the comic-book library, we were in\ncontrol of our own finances, not dependent on an employer",
+      "user_english_phrase": "",
+      "count": 19
     },
-    "hlb2jw5sykjn": {
-
-      "arabic_phrase": "الأغنياء لديهم المال يعمل لصالحهم",
-      "english_phrase": "The rich have money work for them ,",
-      "count": 21,
-      "user_english_phrase":""
+    "mqj9cfz2wemu": {
+      "arabic_phrase": "الأفضل\nالجزء هو أن أعمالنا كانت تولد المال لنا، حتى عندما كنا\nلم تكن هناك جسديا",
+      "english_phrase": "The best\npart was that our business generated money for us, even when we\nweren’t physically there",
+      "user_english_phrase": "",
+      "count": 20
     },
-    "um5k8yw9fvo3": {
-      "arabic_phrase": "في صباح يوم السبت المشرق هذا،\n تعلمت وجهة نظر مختلفة تمامًا عما علمني إياه والدي المسكين",
-      "english_phrase": "On that bright Saturday morning, I learned a completely dif f erent point of view from what I had been taught by my poor dad ",
-      "count": 22,
-      "user_english_phrase":""
+    "wljtwnbhncsg": {
+      "arabic_phrase": "عملت أموالنا بالنسبة لنا",
+      "english_phrase": "Our money worked for us",
+      "user_english_phrase": "",
+      "count": 21
     },
-    "ja5k8kbdhy2j": {
-      "arabic_phrase": "عندما كنت في التاسعة من عمري، أدركت أن كلا والدي يريدان مني أن أتعلم",
-      "english_phrase": "At the age of nine, I understood that both dads wanted me to learn ",
-      "count": 23,
-      "user_english_phrase":""
-    },
-    "y9crq5eemmcl": {
-      "arabic_phrase": "لقد شجعني كلا الأبوين على الدراسة،\n لكن ليس نفس الأشياء",
-      "english_phrase": "Both dads encouraged me to study, but not the same things",
-      "count": 24,
-      "user_english_phrase":""
-    }
-  };
-  Map<String, dynamic> newBookData = {
-    "poordadrichdad": {
-      "page22": theData
+    "j766mltbaren": {
+      "arabic_phrase": "بدلاً من أن يدفع لنا المال، أعطانا أبي الغني أكثر من ذلك بكثير",
+      "english_phrase": "Instead of paying us money, rich dad had given us so much more",
+      "user_english_phrase": "",
+      "count": 22
     }
   };
 
-  // Atomically update the 'books' field with the new data.
- await washingtonRef.update({
-    "books": newBookData,
-  });
- print("supposed to be updated");
+  // Get the current data
+  try {
+    DocumentSnapshot userDoc = await userDocRef.get();
+    Map<String, dynamic>? theDataBaseAsJson = userDoc.data() as Map<String, dynamic>?;
+
+    // Check if 'books' field exists
+    if (theDataBaseAsJson != null && theDataBaseAsJson.containsKey('books')) {
+      // If 'books' field exists, update it by adding a new page
+      Map<String, dynamic> booksData = theDataBaseAsJson['books'];
+      booksData["poordadrichdad"] ??= {};
+      booksData["poordadrichdad"][pageNAme] = theData;
+
+      // Atomically update the 'books' field with the modified data
+      await userDocRef.update({
+        "books": booksData,
+      });
+    } else {
+      // If 'books' field doesn't exist, create it with the new page
+      await userDocRef.update({
+        "books": {
+          "poordadrichdad": {
+            "page23": theData,
+          },
+        },
+      });
+    }
+
+    print("Supposed to be updated");
+    print(pageNAme);
+  } catch (e) {
+    print("Error updating document: $e");
+  }
 }
+
+
+
 void updateTheUserTranslation(phraseRandomName,bookName, pageName, theTranslation) async {
   print("in data base updater");
   FirebaseFirestore db = FirebaseFirestore.instance;

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:vocabulary_coach/Features/chat_page/presentation/views/widgets/viewDataInGoodContainer.dart";
 
 import "chat_constants.dart";
 class buttom_Text_reciever_and_data_in_good_shape extends StatelessWidget {
@@ -16,7 +17,12 @@ class buttom_Text_reciever_and_data_in_good_shape extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-
+              const ShowTextInAGoodContainer(
+                borderButtom: false,
+                textEnglish: true,
+                thePhrase:
+                "ShowTextInAGoodContainer",
+              ),
               TextField(
                 onChanged: (value) {
                   //Do something with the user input.

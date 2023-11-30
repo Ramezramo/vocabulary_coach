@@ -1,19 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/utils/colorConstants.dart';
 import '../../../../core/utils/databaseXoperations/WriteOnDataBase.dart';
 import '../../../../core/widgets/Reuseable_Widgets_Ram/myCatButton.dart';
 import '../../../../core/widgets/Reuseable_Widgets_Ram/myCatTextField.dart';
-import '../../../../tsting.dart';
 import '../manger/cubit/vocab_cubet_cubit.dart';
 
 class addWordPage extends StatefulWidget {
   const addWordPage({Key? key}) : super(key: key);
 
+
   @override
   State<addWordPage> createState() => _DetailPageState();
 }
+
 MakeChangesDBM ddb = MakeChangesDBM();
 TextEditingController newWordTextFieldController = TextEditingController();
 TextEditingController newWordTranslationController = TextEditingController();
@@ -37,8 +38,8 @@ class _DetailPageState extends State<addWordPage> {
                     right: 0,
                     child: Container(
                       height: 300,
-                      decoration: const BoxDecoration(
-                          color: Color(0xFF628EEC)
+                      decoration:  BoxDecoration(
+                          color: clr_1backGround1
                       ),
                     )),
                 const Positioned(
@@ -68,23 +69,23 @@ class _DetailPageState extends State<addWordPage> {
                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
 
-                              MyTextField(borderSide_color: clr_cardColor,borderSide_color_infocas: clr_slectedcardColor,is_password: false,hint_text: "type the new word",textEditingController:newWordTextFieldController,addDecaration: true, ),
+                              MyTextField(borderSide_color: clr_4cardColor2,borderSide_color_infocas: clr_3cardColor1,is_password: false,hint_text: "type the new word",textEditingController:newWordTextFieldController,addDecaration: true, ),
                               const SizedBox(height: 20,),
 
                               Row(
                                 children: [
-                                  Expanded(child: MyTextField(borderSide_color: clr_cardColor,borderSide_color_infocas: clr_slectedcardColor,is_password: false,hint_text: "type its translation",textEditingController:newWordTranslationController,addDecaration: true, )),
+                                  Expanded(child: MyTextField(borderSide_color: clr_4cardColor2,borderSide_color_infocas: clr_3cardColor1,is_password: false,hint_text: "type its translation",textEditingController:newWordTranslationController,addDecaration: true, )),
                                   IconButton(onPressed: (){}, icon: const Icon(Icons.translate))
                                 ],
                               ),
                               MyButton(curveDegree: 4,onPressed: (){
-
-                                print(newWordTextFieldController.text);
-                                ddb.addNewWordGoogleLevel(newWordTextFieldController.text,newWordTranslationController.text,"users","words");
-                                BlocProvider.of<VocabCubetCubit>(context).addWordToCubit(newWordTextFieldController.text);
+                                if (kDebugMode) {
+                                  print(newWordTextFieldController.text);
+                                }
+                                ddb.addNewWordGoogleLevel(newWordTextFieldController.text,newWordTranslationController.text,"users","words","teKESef7NCcCZwGgZzjSlfVsNgG2");
                                 newWordTextFieldController.clear();
                                 newWordTranslationController.clear();
-                              },color: clr_cardColor,title: const Text("add")),
+                              },color: clr_6cardColor3,title: const Text("add")),
 
                             ],
                           ),

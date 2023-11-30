@@ -26,19 +26,33 @@ class _translatingBookPageState extends State<BookPages> {
   late Map<String, dynamic> dataFromDataBase;
   bool loadOrNo = true;
   late List pagesInTheBook;
+
+
   Future<void> gettingData() async {
     dataFromDataBase = widget.dataBaseData;
     pagesInTheBook = dataFromDataBase["books"][widget.bookName].keys.toList();
+
+    // Sort the keys based on the numeric part after the underscore
+    pagesInTheBook.sort((a, b) {
+      int aNum = int.parse(a.split('_')[1]);
+      int bNum = int.parse(b.split('_')[1]);
+      return aNum.compareTo(bNum);
+    });
+
     if (kDebugMode) {
       print(dataFromDataBase);
     }
+
     setState(() {
       loadOrNo = false;
     });
   }
 
+
   Future<void> getDataBAse() async {
-    print("changing the database data for secon time ");
+    if (kDebugMode) {
+      print("changing the database data for secon time ");
+    }
     if (kDebugMode) {
       print("sdkfj");
     }
@@ -76,6 +90,8 @@ class _translatingBookPageState extends State<BookPages> {
                 itemCount: pagesInTheBook.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
+                  String onePage = pagesInTheBook[index];
+                  // print(onePage);
                   return Column(
                     children: [
                       ListTile(
@@ -102,7 +118,7 @@ class _translatingBookPageState extends State<BookPages> {
                                     .start, // Align text to the beginning
                                 children: [
                                   Text(
-                                    pagesInTheBook[index],
+                                    onePage.replaceAll('_', ''),
                                     style: const TextStyle(fontSize: 20),
                                     overflow: TextOverflow.ellipsis,
                                   ),

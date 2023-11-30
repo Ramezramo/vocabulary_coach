@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../../../core/utils/colorConstants.dart';
 class BubbleContainer extends StatelessWidget {
   final String borderRadiosIsTop;
   final TextDirection textDirection;
@@ -42,7 +44,7 @@ class BubbleContainer extends StatelessWidget {
         Material(
           borderRadius: borderRadius,
           elevation: 5.0,
-          color: Colors.lightBlue,
+          color: clr_4cardColor2,
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(
