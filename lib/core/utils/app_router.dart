@@ -18,14 +18,14 @@ abstract class AppRouter {
   static const kAddWordPage = '/addWordPage';
   static const kWordMemorizationPage = '/wordMemorizationPage';
   static const kWordsAdded = '/wordsAdded';
-  static const kmyHomePage = '/MyHomePage';
+  static const kmyHomePage = '/';
 
   static final router = GoRouter(
     routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const SplashView(),
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder: (context, state) => const SplashView(),
+      // ),
       GoRoute(
         path: kmyHomePage,
         builder: (context, state) => const MyHomePage(title: 'hola ',),
