@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/colorConstants.dart';
 import '../../../TranslatingAbookFeature/presentation/views/translating_book.dart';
 import '../../../addingNewWordFeature/presentation/views/addingNewWordPage.dart';
-import '../../../chat_page/presentation/views/chat_page.dart';
 import '../../../wordMemorization/presentation/wordMemorization.dart';
 import '../../../wordsAddedReview/presentation/wordsAddedReview.dart';
 
@@ -23,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
     const wordMemorizationPage(),
     const WordsAdded(),
     const translatingBookMain(),
+    // const PageTranslationWithDoulingoUi(),
   ];
 
   int currentIndex = 0;
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
         backgroundColor: clr_2backGround2,
         onTap: onTap,
         currentIndex: currentIndex,
-        selectedItemColor: clr_4cardColor2,
+        selectedItemColor: clr_3cardColor1,
         unselectedItemColor: Colors.grey.withOpacity(0.5),
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -52,23 +52,28 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
           BottomNavigationBarItem(
             icon: const Icon(Icons.add),
             label: 'Home',
-            backgroundColor: clr_7cardInButtomNav,
+            backgroundColor: clr_3cardColor1,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.access_alarms),
             label: 'Home',
-            backgroundColor: clr_7cardInButtomNav,
+            backgroundColor: clr_3cardColor1,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.account_balance_sharp),
             label: 'Added words',
-            backgroundColor: clr_7cardInButtomNav,
+            backgroundColor: clr_3cardColor1,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.menu_book_sharp),
             label: 'Bar',
-            backgroundColor: clr_7cardInButtomNav,
+            backgroundColor: clr_3cardColor1,
           ),
+          // BottomNavigationBarItem(
+          //   icon: const Icon(Icons.add_circle),
+          //   label: 'Home',
+          //   backgroundColor: clr_7cardInButtomNav,
+          // ),
         ],
       ),
       body: pages[currentIndex],

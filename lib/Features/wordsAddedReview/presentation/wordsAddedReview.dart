@@ -107,55 +107,66 @@ class _WordsAddedState extends State<WordsAdded> {
                         insideWordssmap[websitesNames[index]]
                             ['translationtoarabic'];
 
-                    return Column(
-                      children: [
-                        ListTile(
-                          onLongPress: () {
-                            if (kDebugMode) {
-                              print("long pressed");
-                            }
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        color: clr_3cardColor1,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              onLongPress: () {
+                                if (kDebugMode) {
+                                  print("long pressed");
+                                }
 
-                            // showAlertDialog(context,null,"besoes",websitesNames[index],false);
-                          },
-                          onTap: () {
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) => DataPage(userID: _userID,pagename: websitesNames[index],)));
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) => DataPage(pagename: keys[index],)));
-                          },
-                          title: Row(
-                            children: [
-                              const Icon(Icons.accessibility_new_outlined),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment
-                                      .start, // Align text to the beginning
-                                  children: [
-                                    Text(
-                                      websitesNames[index],
-                                      style: const TextStyle(fontSize: 20,),
+                                // showAlertDialog(context,null,"besoes",websitesNames[index],false);
+                              },
+                              onTap: () {
+                                // Navigator.push(context, MaterialPageRoute(builder: (context) => DataPage(userID: _userID,pagename: websitesNames[index],)));
+                                // Navigator.push(context, MaterialPageRoute(builder: (context) => DataPage(pagename: keys[index],)));
+                              },
+                              title: Row(
+                                children: [
+                                  const Icon(Icons.accessibility_new_outlined),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start, // Align text to the beginning
+                                      children: [
+                                        Text(
+                                          websitesNames[index],
+                                          style:  TextStyle(fontSize: 20,color: clr_textColor),
 
-                                      overflow: TextOverflow.ellipsis,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        Text(
+                                          translationValue.toString(),
+                                          style:  TextStyle(fontSize: 15,color: clr_textColor),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      translationValue.toString(),
-                                      style: const TextStyle(fontSize: 15),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                             Container(
+                              height: 10,
+                               color: clr_2backGround2,
+
+                            )
+                            // const Divider(
+                            //   // Add a Divider below each ListTile to separate the items
+                            //   endIndent: 20,
+                            //   thickness:
+                            //       1.4, // You can adjust the thickness as needed
+                            // ),
+                          ],
                         ),
-                        const Divider(
-                          // Add a Divider below each ListTile to separate the items
-                          endIndent: 20,
-                          thickness:
-                              1.4, // You can adjust the thickness as needed
-                        ),
-                      ],
+                      ),
                     );
                   },
                 );

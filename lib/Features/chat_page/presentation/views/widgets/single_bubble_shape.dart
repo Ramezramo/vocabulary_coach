@@ -44,7 +44,7 @@ class BubbleContainer extends StatelessWidget {
         Material(
           borderRadius: borderRadius,
           elevation: 5.0,
-          color: clr_4cardColor2,
+          color: clr_3cardColor1,
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(
@@ -52,7 +52,8 @@ class BubbleContainer extends StatelessWidget {
               child: Text(
                 textDirection: textDirection,
                 text,
-                style: const TextStyle(
+                style:  TextStyle(
+                  color: clr_textColor,
                   fontSize: 20,
                 ),
               ),

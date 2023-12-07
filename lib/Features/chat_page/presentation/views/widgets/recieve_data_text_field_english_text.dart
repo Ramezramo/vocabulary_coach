@@ -40,7 +40,7 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
       children: [
         Material(
           elevation: 5.0,
-          color: clr_4cardColor2,
+          color: clr_3cardColor1,
           child: SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Padding(
@@ -49,13 +49,16 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
                 controller: widget.messageSenderController ,
                 onChanged: (value) {},
                 maxLines: null,
-                style: const TextStyle(color: Colors.black87),
+                style:  TextStyle(color: clr_textColor),
                 decoration: InputDecoration(
                   border: InputBorder.none,
+                  fillColor: clr_textColor,
+                  hoverColor: clr_textColor,
+                  hintStyle: TextStyle(color: clr_textColor),
                   hintText: 'Enter your translation here...',
                   suffixIcon: IconButton(
                     onPressed: widget.onPressed,
-                    icon: const Icon(Icons.save,color: Colors.black87),
+                    icon:  Icon(Icons.save,color: clr_textColor),
                   ),
                 ),
               ),
@@ -91,7 +94,7 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
       BuildContext context, containerText, onPressed) {
     return Container(
       decoration:  BoxDecoration(
-        color: clr_4cardColor2,
+        color: clr_3cardColor1,
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
@@ -100,7 +103,7 @@ class _TakingUserInputWidgetState extends State<TakingUserInputWidget> {
       width: MediaQuery.of(context).size.width,
       child: TextButton(
         onPressed: onPressed,
-        child: Text(containerText,style: const TextStyle(color: Colors.black87)),
+        child: Text(containerText,style:  TextStyle(color:clr_textColor)),
       ),
     );
   }

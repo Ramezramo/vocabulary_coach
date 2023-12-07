@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../../../../../core/utils/colorConstants.dart';
 const kSendButtonTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
   fontWeight: FontWeight.bold,
@@ -20,7 +22,7 @@ const kMessageContainerDecoration = BoxDecoration(
 InputDecoration kDecoration(hintText, double d) {
   return InputDecoration(
     hintText: hintText,
-    hintStyle: const TextStyle(color: Colors.black26),
+    hintStyle:  TextStyle(color: clr_textColor),
     contentPadding:
     const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
     border: const OutlineInputBorder(

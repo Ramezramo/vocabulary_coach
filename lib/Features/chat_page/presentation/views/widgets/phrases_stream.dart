@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../chat_page.dart';
 import 'a_one_message_bubble.dart';
 
-
 String generateRandomKey() {
   const String characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   Random random = Random();
@@ -27,9 +26,11 @@ class Messagestream extends StatelessWidget {
   late List<dynamic> allKeysList;
   late List<String> sortedKeys;
   late bool isViewTextFeild = true;
+
+
   Future getDateFromDb() async {
     theText =
-    dataBaseDataObtained?["books"][bookNameObtained][pageNameObtained];
+        dataBaseDataObtained?["books"][bookNameObtained][pageNameObtained];
     Set<dynamic> allKeys = theText.keys.toSet();
     allKeysList = allKeys.toList();
     sortedKeys = theText.keys.toList()
@@ -49,33 +50,42 @@ class Messagestream extends StatelessWidget {
     getDateFromDb();
     for (var element in sortedKeys) {
       String phraseArabic = dataBaseDataObtained?["books"][bookNameObtained]
-      [pageNameObtained][element]["arabic_phrase"];
+          [pageNameObtained][element]["arabic_phrase"];
       String phraseEnglish = dataBaseDataObtained?["books"][bookNameObtained]
-      [pageNameObtained][element]["english_phrase"];
+          [pageNameObtained][element]["english_phrase"];
 
       String theTranslationSaved = dataBaseDataObtained?["books"]
-      [bookNameObtained][pageNameObtained][element]
-      ["user_english_phrase"] ??
+                  [bookNameObtained][pageNameObtained][element]
+              ["user_english_phrase"] ??
           "n";
       // String transla
 
       if (theTranslationSaved.length < 2) {
         isViewTextFeild = true;
+        print("hola9387");
+
       } else {
         isViewTextFeild = false;
+
       }
 
-      Messagebubble messageBubble = Messagebubble(generateRandomKey(),phraseArabic, isViewTextFeild,
-          element, theTranslationSaved, phraseEnglish);
+      Messagebubble messageBubble = Messagebubble(
+          generateRandomKey(),
+          phraseArabic,
+          isViewTextFeild,
+          element,
+          theTranslationSaved,
+          phraseEnglish);
       messageBubbles.add(messageBubble);
     }
 
     return Expanded(
-        child: ListView(
-          controller: _scrollController,
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-          shrinkWrap: true,
-          children: messageBubbles,
-        ));
+      child: ListView(
+        controller: _scrollController,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        shrinkWrap: true,
+        children: messageBubbles,
+      ),
+    );
   }
 }

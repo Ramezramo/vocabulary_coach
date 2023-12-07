@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/colorConstants.dart';
 import '../../../../../core/utils/databaseXoperations/read_from_data_base_fb.dart';
 import '../../../../../core/widgets/skeltonloading.dart';
 import '../book_pages_count_page.dart';
@@ -56,47 +57,50 @@ class _translatingBookPageState extends State<translatingBookPage> {
       itemCount: pagesLen.length,
       shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Column(
-          children: [
-            ListTile(
-              onLongPress: () {},
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BookPages(dataBaseData:dataFromDataBase,bookName:pagesLen[index]),
-                  ),
-                );
-                // Navigator.push(InsideBookPage() as BuildContext);
-              },
-              title:  Row(
-                children: [
-                  // Icon(Icons.accessibility_new_outlined),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment
-                          .start, // Align text to the beginning
-                      children: [
-                        Text(
-                          pagesLen[index],
-                          style: TextStyle(fontSize: 20),
-                          overflow: TextOverflow.ellipsis,
-                        ),
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            color: clr_3cardColor1,
+            child: Column(
+              children: [
+                ListTile(
+                  onLongPress: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookPages(dataBaseData:dataFromDataBase,bookName:pagesLen[index]),
+                      ),
+                    );
+                    // Navigator.push(InsideBookPage() as BuildContext);
+                  },
+                  title:  Row(
+                    children: [
+                      // Icon(Icons.accessibility_new_outlined),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment
+                              .start, // Align text to the beginning
+                          children: [
+                            Text(
+                              pagesLen[index],
+                              style: TextStyle(fontSize: 20,color: clr_textColor),
+                              overflow: TextOverflow.ellipsis,
+                            ),
 
-                      ],
-                    ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+
+              ],
             ),
-            const Divider(
-              endIndent: 5,
-              thickness: 1.4,
-            ),
-          ],
+          ),
         );
       },
     );
