@@ -87,22 +87,22 @@ class _WordsAddedState extends State<WordsAdded> {
                 Map<String, dynamic> insideWordssmap = data["words"];
                 List websitesNames = insideWordssmap.keys.toList();
 
-                if (kDebugMode) {
-                  print("websitesNames");
-                  print(websitesNames);
-                }
+                // if (kDebugMode) {
+                //   print("websitesNames");
+                //   print(websitesNames);
+                // }
 
                 return ListView.builder(
                   itemCount: websitesNames.length,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    if (kDebugMode) {
-                      print("creating the ${websitesNames.length} cards");
-                      print(websitesNames[index]);
-                    }
-                    if (kDebugMode) {
-                      print(insideWordssmap[websitesNames[index]]);
-                    }
+                    // if (kDebugMode) {
+                    //                     //   print("creating the ${websitesNames.length} cards");
+                    //                     //   print(websitesNames[index]);
+                    //                     // }
+                    // if (kDebugMode) {
+                    //   print(insideWordssmap[websitesNames[index]]);
+                    // }
                     String translationValue =
                         insideWordssmap[websitesNames[index]]
                             ['translationtoarabic'];
@@ -115,9 +115,9 @@ class _WordsAddedState extends State<WordsAdded> {
                           children: [
                             ListTile(
                               onLongPress: () {
-                                if (kDebugMode) {
-                                  print("long pressed");
-                                }
+                                // if (kDebugMode) {
+                                //   print("long pressed");
+                                // }
 
                                 // showAlertDialog(context,null,"besoes",websitesNames[index],false);
                               },

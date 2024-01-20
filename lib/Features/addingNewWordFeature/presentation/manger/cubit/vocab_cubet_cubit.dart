@@ -9,7 +9,7 @@ class VocabCubetCubit extends Cubit<VocabCubetState> {
   List wordsInCubit = [];
   void addWordToCubit(String word){
     wordsInCubit.add(word);
-    print(wordsInCubit);
+    // print(wordsInCubit);
     emit(addedNewWord());
   }
 

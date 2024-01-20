@@ -41,9 +41,9 @@ class _translatingBookPageState extends State<BookPages> {
       return aNum.compareTo(bNum);
     });
 
-    if (kDebugMode) {
-      print(dataFromDataBase);
-    }
+    // if (kDebugMode) {
+    //   print(dataFromDataBase);
+    // }
 
     setState(() {
       loadOrNo = false;
@@ -52,12 +52,12 @@ class _translatingBookPageState extends State<BookPages> {
 
 
   Future<void> getDataBAse() async {
-    if (kDebugMode) {
-      print("changing the database data for secon time ");
-    }
-    if (kDebugMode) {
-      print("sdkfj");
-    }
+    // if (kDebugMode) {
+    //   print("changing the database data for secon time ");
+    // }
+    // if (kDebugMode) {
+    //   print("sdkfj");
+    // }
     dataFromDataBase = await giveMeTheDataBaseAsJson();
   }
 

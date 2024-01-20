@@ -71,7 +71,7 @@ class _PageTranslationWithDoulingoUiState
         // Your custom pop-up content goes here
         return AlertDialog(
           title: const Text('Add Word', style: TextStyle(fontSize: 18)),
-          content: SizedBox(height: 197,child: ButtonAndTextField()),
+          content: SizedBox(height: 197, child: ButtonAndTextField()),
           // ButtonAndTextField(),
           actions: [
             TextButton(
@@ -138,9 +138,14 @@ class _PageTranslationWithDoulingoUiState
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          height: 20,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 15.0,left: 9,right: 9),
+                          padding: const EdgeInsets.only(
+                              top: 15.0, left: 9, right: 9),
                           child: Container(
+                            height: MediaQuery.of(context).size.height / 2.5,
                             decoration: BoxDecoration(
                               color: const Color(0XFF202F36),
                               border: Border.all(
@@ -210,13 +215,16 @@ class _PageTranslationWithDoulingoUiState
                       TextButton(
                         onPressed: () {
                           // Add your button onPressed logic here
-                          print(widget.messageSenderControllergg);
+                          // print(widget.messageSenderControllergg);
+
+                          // print("updating database ");
+                          // dataBaseUpdater();
                           if (widget.messageSenderControllergg.text.length >
                               1) {
-                            print("translation saved");
-                            print(widget.phraseID);
-                            print(widget.bookNaME);
-                            print(widget.pageNAme);
+                            // print("translation saved");
+                            // print(widget.phraseID);
+                            // print(widget.bookNaME);
+                            // print(widget.pageNAme);
                             updateTheUserTranslation(
                               widget.phraseID,
                               widget.bookNaME,

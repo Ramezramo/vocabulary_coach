@@ -24,7 +24,7 @@ class MakeChangesDBM {
     /// IF SIGNEDIN == TRUE THE FUNCTION WILL RETURN ITS USER ID TO USE IT IN DATA BASE
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user = auth.currentUser;
-    print(user);
+    // print(user);
     if (user != null) {
       // The user is signed in.
       _userId = user.uid;
@@ -45,16 +45,14 @@ class MakeChangesDBM {
 
     if (snapshot.exists) {
       // Collection and document exist
-      if (kDebugMode) {
-        print(snapshot.data());
-      }
+
     } else {
       // Collection or document doesn't exist, create them
       await _createDocumentWithUserId(
           beboLevel, weboLevel, googleLevel, googlChild);
-      if (kDebugMode) {
-        print("Created collection and document.");
-      }
+      // if (kDebugMode) {
+      //   print("Created collection and document.");
+      // }
     }
   }
 

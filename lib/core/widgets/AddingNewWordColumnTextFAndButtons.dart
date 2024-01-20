@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../reuseableClasses/widgets/Reuseable_widgets/myCatButton.dart';
-import '../../reuseableClasses/widgets/Reuseable_widgets/myCatTextField.dart';
+// import '../../reuseableClasses/widgets/Reuseable_widgets/myCatButton.dart';
+// import '../../reuseableClasses/widgets/Reuseable_widgets/myCatTextField.dart';
+import '../reuseableClasses/widgets/Reuseable_widgets/myCatButton.dart';
+import '../reuseableClasses/widgets/Reuseable_widgets/myCatTextField.dart';
 import '../utils/colorConstants.dart';
 import '../utils/databaseXoperations/WriteOnDataBase.dart';
 
@@ -34,7 +36,7 @@ class ButtonAndTextField extends StatelessWidget {
             ),
             MyButton(curveDegree: 4,onPressed: (){
               if (kDebugMode) {
-                print(newWordTextFieldController.text);
+                // print(newWordTextFieldController.text);
               }
               ddb.addNewWordGoogleLevel(newWordTextFieldController.text,newWordTranslationController.text,"users","words","teKESef7NCcCZwGgZzjSlfVsNgG2");
               newWordTextFieldController.clear();

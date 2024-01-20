@@ -27,8 +27,8 @@ class _translatingBookPageState extends State<translatingBookPage> {
 
     dataFromDataBase =  await giveMeTheDataBaseAsJson();
     pagesLen = dataFromDataBase["books"].keys.toList();
-    print("2342_23523");
-    print(dataFromDataBase);
+    // print("2342_23523");
+    // print(dataFromDataBase);
     setState(() {
       loadOrNo = false;
     });

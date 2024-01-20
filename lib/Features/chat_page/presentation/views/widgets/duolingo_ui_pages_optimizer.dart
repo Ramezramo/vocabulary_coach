@@ -46,14 +46,14 @@ class _DoulingUiOptimizerState extends State<DoulingUiOptimizer> {
               ["user_english_phrase"] ??
           "n";
       if (theTranslationSaved.length < 2) {
-        print(dataBaseDataObtained?["books"][bookNameObtained][pageNameObtained]
-            [element]);
+        // print(dataBaseDataObtained?["books"][bookNameObtained][pageNameObtained]
+        //     [element]);
         nonTranslated.addAll({
           element: dataBaseDataObtained?["books"][bookNameObtained]
               [pageNameObtained][element]
         });
       }
-      print(nonTranslated);
+      // print(nonTranslated);
     }
 
     keysList = nonTranslated.keys.toList();
@@ -94,7 +94,7 @@ class _DoulingUiOptimizerState extends State<DoulingUiOptimizer> {
     double formattedPercentageAsDouble;
     TextEditingController messageSenderControllergg = TextEditingController();
     formattedPercentageAsDouble = double.parse(formattedPercentage);
-    print(formattedPercentageAsDouble);
+    // print(formattedPercentageAsDouble);
     // if (messageSenderControllergg not null)
 
     return PageTranslationWithDoulingoUi(

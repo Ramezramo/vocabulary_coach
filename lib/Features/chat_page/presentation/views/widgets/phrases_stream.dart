@@ -62,7 +62,7 @@ class Messagestream extends StatelessWidget {
 
       if (theTranslationSaved.length < 2) {
         isViewTextFeild = true;
-        print("hola9387");
+        // print("hola9387");
 
       } else {
         isViewTextFeild = false;

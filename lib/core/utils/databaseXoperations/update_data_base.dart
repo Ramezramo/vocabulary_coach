@@ -7,139 +7,231 @@ Future<void> dataBaseUpdater() async {
   FirebaseFirestore db = FirebaseFirestore.instance;
   var userDocRef = db.collection('users').doc('teKESef7NCcCZwGgZzjSlfVsNgG2');
   // added
-  String pageNAme = "page_40";
+
+  String bookName = "leave the world behind";
+  String pageNAme = "page_35";
   Map theData = {
-    "1cpxne1lcwnv": {
-      "arabic_phrase": "كاريكاتير كما أرادوا في ساعتين",
-      "english_phrase": "comics as they wanted in two hours",
+    "xk5wtcbtaskm": {
+      "arabic_phrase": "نحن بحاجة للوصول إلى ذلك المخبأ\nأخبرنا داني عن،",
+      "english_phrase": "we need to get to that bunker\nDanny told us about,",
       "user_english_phrase": "",
       "count": 1
     },
-    "avnd2zb54oss": {
-      "arabic_phrase": "لقد كانت صفقة بالنسبة لهم منذ أ\nتبلغ تكلفة كل قصة كوميدية 10 سنتات، ويمكنهم قراءة خمسة أو ستة سنتات في ساعتين",
-      "english_phrase": "It was a bargain for them since a\ncomic cost 10 cents each, and they could read five or six in two hours",
+    "0faar2vp6qnp": {
+      "arabic_phrase": "وعلينا أن نصل إلى هناك الآن.",
+      "english_phrase": "and we need to get there now.",
       "user_english_phrase": "",
       "count": 2
     },
-    "piwetatpucsi": {
-      "arabic_phrase": "ستقوم أخت مايك بفحص الأطفال أثناء مغادرتهم للتأكد من أنهم\nلم نستعير أي كتب هزلية",
-      "english_phrase": "Mike’s sister would check the kids as they left to make sure they\nweren’t borrowing any comic books",
+    "lcxyczd7ovmk": {
+      "arabic_phrase": "ما الذي تتحدث عنه؟",
+      "english_phrase": "What are you talking about?",
       "user_english_phrase": "",
       "count": 3
     },
-    "7ir6t2s8iwbe": {
-      "arabic_phrase": "كما أنها احتفظت بالكتب وقطع الأشجار\nفي عدد الأطفال الذين يظهرون كل يوم، ومن هم، وأي منهم\nالتعليقات التي قد تكون لديهم",
-      "english_phrase": "She also kept the books, logging\nin how many kids showed up each day, who they were, and any\ncomments they might have",
+    "c7h3bvy6ezi6": {
+      "arabic_phrase": "أنت تعرف شيئًا ما.",
+      "english_phrase": "You know something.",
       "user_english_phrase": "",
       "count": 4
     },
-    "x67d8do6cl30": {
-      "arabic_phrase": "لقد كان متوسط ​​أجري أنا ومايك 9",
-      "english_phrase": "Mike and I averaged \$9",
+    "8hs09kgjmvnk": {
+      "arabic_phrase": "كان لدي شك تسلل،\nولكني أردت المزيد من المعلومات أولاً.",
+      "english_phrase": "I had a sneaking suspicion,\nbut I wanted more information first.",
       "user_english_phrase": "",
       "count": 5
     },
-    "n766f7fugxcn": {
-      "arabic_phrase": "50 دولارًا في الأسبوع\nعلى مدى ثلاثة أشهر",
-      "english_phrase": "50 per week\nover a three-month period",
+    "rk3xf09rar0a": {
+      "arabic_phrase": "كل العلامات كانت موجودة بالتأكيد، لكني...",
+      "english_phrase": "All signs were there, sure, but I…",
       "user_english_phrase": "",
       "count": 6
     },
-    "lih93yprkpo6": {
-      "arabic_phrase": "كنا ندفع لأخته دولارًا واحدًا في الأسبوع و\nسمحت لها بقراءة القصص المصورة مجانًا، وهو ما نادرًا ما فعلته منذ ذلك الحين\nكان يدرس دائما",
-      "english_phrase": "We paid his sister one dollar a week and\nallowed her to read the comics for free, which she rarely did since she\nwas always studying",
+    "k14l6o23u43v": {
+      "arabic_phrase": "لم أرغب في إخافة أحد.",
+      "english_phrase": "I didn't want to scare anyone.",
       "user_english_phrase": "",
       "count": 7
     },
-    "sh1p266qu3rv": {
-      "arabic_phrase": "حافظت أنا ومايك على اتفاقيتنا من خلال العمل في المتجر كل يوم\nالسبت وجمع كل الكتب المصورة من المتاجر المختلفة",
-      "english_phrase": "Mike and I kept our agreement by working in the store every\nSaturday and collecting all the comic books from the different stores",
+    "h4yqicnzo8qo": {
+      "arabic_phrase": "كنت ستدعوني بالجنون\nلأنه جنون.",
+      "english_phrase": "You'd have called me crazy\nbecause it is crazy.",
       "user_english_phrase": "",
       "count": 8
     },
-    "o167r0qgl9ms": {
-      "arabic_phrase": "لقد حافظنا على اتفاقنا مع الموزع بعدم بيع أي كتاب فكاهي\nكتب",
-      "english_phrase": "We kept our agreement to the distributor by not selling any comic\nbooks",
+    "dm24evr9nzz1": {
+      "arabic_phrase": "كان من الممكن أن يكون الأمر أكثر منطقية لو كنا كذلك\nعلى شفا غزو شامل،",
+      "english_phrase": "It would have made more sense if we were\non the brink of an all-out invasion,",
       "user_english_phrase": "",
       "count": 9
     },
-    "wnghyxblv2g3": {
-      "arabic_phrase": "لقد أحرقناها عندما أصبحت ممزقة للغاية",
-      "english_phrase": "We burned them once they got too tattered",
+    "h5v3rgnvw9g2": {
+      "arabic_phrase": "ولكن هذا…",
+      "english_phrase": "but this…",
       "user_english_phrase": "",
       "count": 10
     },
-    "dw0t6aray6pm": {
-      "arabic_phrase": "لقد حاولنا الفتح\nمكتب فرعي، ولكن لم نتمكن أبدًا من العثور على شخص جدير بالثقة تمامًا\nومخصصة كأخت مايك",
-      "english_phrase": "We tried opening\na branch office, but we could never quite find someone as trustworthy\nand dedicated as Mike’s sister",
+    "b2cbegpcy6fb": {
+      "arabic_phrase": "لم أكن أعتقد أننا سنسمح بذلك بالفعل\nشيء من هذا القبيل يحدث.",
+      "english_phrase": "I didn't think we'd actually let\nsomething like this happen.",
       "user_english_phrase": "",
       "count": 11
     },
-    "wuzg6ybs8tvs": {
-      "arabic_phrase": "في سن مبكرة، اكتشفنا مدى صعوبة ذلك\nكان العثور على موظفين جيدين",
-      "english_phrase": "At an early age, we found out how hard\nit was to find good staff",
+    "b0gwpv2tn9wr": {
+      "arabic_phrase": "اعتقدت أننا أذكى من ذلك.",
+      "english_phrase": "I thought we were smarter than that.",
       "user_english_phrase": "",
       "count": 12
     },
-    "yg897yxdatvj": {
-      "arabic_phrase": "بعد ثلاثة أشهر من افتتاح المكتبة لأول مرة، اندلع شجار\nالغرفة",
-      "english_phrase": "Three months after the library first opened, a fight broke out in\nthe room",
+    "bvidfl5idi9h": {
+      "arabic_phrase": "دع ماذا يحدث؟",
+      "english_phrase": "Let what happen?",
       "user_english_phrase": "",
       "count": 13
     },
-    "nwu1ph4bbeeo": {
-      "arabic_phrase": "قام بعض المتنمرين من حي آخر بدفعهم\nفي الطريق، واقترح والد مايك أن نغلق العمل",
-      "english_phrase": "Some bullies from another neighborhood pushed their\nway in, and Mike’s dad suggested we shut down the business",
+    "56qsyngxoka9": {
+      "arabic_phrase": "لأن عميلي الأساسي\nيعمل في قطاع الدفاع",
+      "english_phrase": "Because my primary client\nworks in the defense sector,",
       "user_english_phrase": "",
       "count": 14
     },
-    "b394y7wqdowi": {
-      "arabic_phrase": "لذا\nتم إغلاق أعمالنا في مجال الكتب المصورة، وتوقفنا عن العمل\nأيام السبت في المتجر",
-      "english_phrase": "So\nour comic-book business shut down, and we stopped working on\nSaturdays at the convenience store",
+    "0yentck6xh4z": {
+      "arabic_phrase": "أقضي الكثير من الوقت في دراسة التكلفة\nتحليل فوائد الحملات العسكرية.",
+      "english_phrase": "I spend a lot of time studying the cost\nbenefit analysis of military campaigns.",
       "user_english_phrase": "",
       "count": 15
     },
-    "qn56ryq0oqx0": {
-      "arabic_phrase": "لكن الأب الغني كان متحمسًا لأنه\nكان لديه أشياء جديدة يريد أن يعلمنا إياها",
-      "english_phrase": "But rich dad was excited because\nhe had new things he wanted to teach us",
+    "ra1r3frz9ban": {
+      "arabic_phrase": "كان هناك برنامج واحد على وجه الخصوص\nهذا ما أرعب موكلي أكثر من غيره.",
+      "english_phrase": "There was one program in particular\nthat terrified my client the most.",
       "user_english_phrase": "",
       "count": 16
     },
-    "a7xw34h2onu3": {
-      "arabic_phrase": "لقد كان سعيدًا لأننا\nلقد تعلمنا درسنا الأول جيدًا: لقد تعلمنا كيف نجعل المال يعمل\nلنا",
-      "english_phrase": "He was happy because we\nhad learned our first lesson so well: We learned to make money work\nfor us",
+    "7uuzddewt414": {
+      "arabic_phrase": "مناورة بسيطة من ثلاث مراحل يمكنها ذلك\nإسقاط حكومة دولة من الداخل.",
+      "english_phrase": "A simple three-stage maneuver that could\ntopple a country's government from within.",
       "user_english_phrase": "",
       "count": 17
     },
-    "42mqb79b5ik8": {
-      "arabic_phrase": "وبسبب عدم حصولنا على أجر مقابل عملنا في المتجر، اضطررنا لذلك\nلاستخدام مخيلتنا لتحديد فرصة لكسب المال",
-      "english_phrase": "By not getting paid for our work at the store, we were forced\nto use our imaginations to identify an opportunity to make money",
+    "z2idjc7zysph": {
+      "arabic_phrase": "المرحلة الأولى هي العزلة.",
+      "english_phrase": "The first stage is isolation.",
       "user_english_phrase": "",
       "count": 18
     },
-    "hagchdv5tfb8": {
-      "arabic_phrase": "عندما بدأنا عملنا الخاص، مكتبة الكتب المصورة، وصلنا إلى هناك\nالتحكم في مواردنا المالية، وعدم الاعتماد على صاحب العمل",
-      "english_phrase": "By starting our own business, the comic-book library, we were in\ncontrol of our own finances, not dependent on an employer",
+    "gmeiq1oejyzq": {
+      "arabic_phrase": "<i>قم بتعطيل اتصالاتهم\nوالمواصلات.</i>",
+      "english_phrase": "<i>Disable their communication\nand transportation.</i>",
       "user_english_phrase": "",
       "count": 19
     },
-    "mqj9cfz2wemu": {
-      "arabic_phrase": "الأفضل\nالجزء هو أن أعمالنا كانت تولد المال لنا، حتى عندما كنا\nلم تكن هناك جسديا",
-      "english_phrase": "The best\npart was that our business generated money for us, even when we\nweren’t physically there",
+    "52kmyzl55wi2": {
+      "arabic_phrase": "<i>اجعل الهدف أصمًا وأبكمًا\nومشلول قدر الإمكان،</i>",
+      "english_phrase": "<i>Make the target as deaf, dumb\nand paralyzed as possible,</i>",
       "user_english_phrase": "",
       "count": 20
     },
-    "wljtwnbhncsg": {
-      "arabic_phrase": "عملت أموالنا بالنسبة لنا",
-      "english_phrase": "Our money worked for us",
+    "ih1rlkshtx5u": {
+      "arabic_phrase": "<i>إعدادهم للمرحلة الثانية.</i>",
+      "english_phrase": "<i>setting them up for the second stage.</i>",
       "user_english_phrase": "",
       "count": 21
     },
-    "j766mltbaren": {
-      "arabic_phrase": "بدلاً من أن يدفع لنا المال، أعطانا أبي الغني أكثر من ذلك بكثير",
-      "english_phrase": "Instead of paying us money, rich dad had given us so much more",
+    "u4e619boefcd": {
+      "arabic_phrase": "الفوضى المتزامنة.",
+      "english_phrase": "Synchronized chaos.",
       "user_english_phrase": "",
       "count": 22
+    },
+    "h7bqyjwnornr": {
+      "arabic_phrase": "<i>ترويعهم بهجمات سرية\nوالمعلومات الخاطئة،</i>",
+      "english_phrase": "<i>Terrorize them with covert attacks\nand misinformation,</i>",
+      "user_english_phrase": "",
+      "count": 23
+    },
+    "lr3y4pxr9noz": {
+      "arabic_phrase": "<i>تطغى على قدراتهم الدفاعية</i>",
+      "english_phrase": "<i>overwhelming their defense capabilities</i>",
+      "user_english_phrase": "",
+      "count": 24
+    },
+    "1uqhrf7vevq5": {
+      "arabic_phrase": "<i>ترك أنظمة الأسلحة الخاصة بهم عرضة للخطر\nللمتطرفين وجيشهم.</i>",
+      "english_phrase": "<i>leaving their weapon systems vulnerable\nto extremists and their own military.</i>",
+      "user_english_phrase": "",
+      "count": 25
+    },
+    "i15l5qvl1r7t": {
+      "arabic_phrase": "<i>بدون عدو واضح أو دافع،\nسيبدأ الناس في الانقلاب على بعضهم البعض.</i>",
+      "english_phrase": "<i>Without a clear enemy or motive,\npeople would start turning on each other.</i>",
+      "user_english_phrase": "",
+      "count": 26
+    },
+    "14qcqzrq0fgb": {
+      "arabic_phrase": "إذا تم ذلك بنجاح،\nأما المرحلة الثالثة فستحدث من تلقاء نفسها.",
+      "english_phrase": "If done successfully,\nthe third stage would happen on its own.",
+      "user_english_phrase": "",
+      "count": 27
+    },
+    "pn656sya9vsb": {
+      "arabic_phrase": "ما هي المرحلة الثالثة؟",
+      "english_phrase": "What's the third stage?",
+      "user_english_phrase": "",
+      "count": 28
+    },
+    "uebrn0mi5pt9": {
+      "arabic_phrase": "الانقلاب.",
+      "english_phrase": "Coup d'état.",
+      "user_english_phrase": "",
+      "count": 29
+    },
+    "iuh5nr1gogje": {
+      "arabic_phrase": "حرب أهلية.",
+      "english_phrase": "Civil war.",
+      "user_english_phrase": "",
+      "count": 30
+    },
+    "78vkvvtcu98l": {
+      "arabic_phrase": "طي.",
+      "english_phrase": "Collapse.",
+      "user_english_phrase": "",
+      "count": 31
+    },
+    "na5liwnlhvja": {
+      "arabic_phrase": "تم النظر في هذا البرنامج\nالطريقة الأكثر فعالية من حيث التكلفة",
+      "english_phrase": "This program was considered\nthe most cost-effective way",
+      "user_english_phrase": "",
+      "count": 32
+    },
+    "m9imm74m3w7w": {
+      "arabic_phrase": "لزعزعة استقرار البلاد.",
+      "english_phrase": "to destabilize a country.",
+      "user_english_phrase": "",
+      "count": 33
+    },
+    "66tll1xycd3i": {
+      "arabic_phrase": "لأنه إذا كانت الأمة المستهدفة\nكان مختلاً بما فيه الكفاية،",
+      "english_phrase": "Because if the target nation\nwas dysfunctional enough,",
+      "user_english_phrase": "",
+      "count": 34
+    },
+    "64m6pb8qtfpt": {
+      "arabic_phrase": "سيقوم هذا العمل بالنيابة عنك.",
+      "english_phrase": "it would, in essence, do the work for you.",
+      "user_english_phrase": "",
+      "count": 35
+    },
+    "1onmm10i3s5o": {
+      "arabic_phrase": "من بدأ هذا\nيريد منا أن ننتهي منه.",
+      "english_phrase": "Whoever started this\nwants us to finish it.",
+      "user_english_phrase": "",
+      "count": 36
+    },
+    "qchx4sm4yj3g": {
+      "arabic_phrase": "روز!",
+      "english_phrase": "Rose!",
+      "user_english_phrase": "",
+      "count": 37
     }
   };
 
@@ -152,8 +244,8 @@ Future<void> dataBaseUpdater() async {
     if (theDataBaseAsJson != null && theDataBaseAsJson.containsKey('books')) {
       // If 'books' field exists, update it by adding a new page
       Map<String, dynamic> booksData = theDataBaseAsJson['books'];
-      booksData["poordadrichdad"] ??= {};
-      booksData["poordadrichdad"][pageNAme] = theData;
+      booksData[bookName] ??= {};
+      booksData[bookName][pageNAme] = theData;
 
       // Atomically update the 'books' field with the modified data
       await userDocRef.update({
@@ -163,8 +255,8 @@ Future<void> dataBaseUpdater() async {
       // If 'books' field doesn't exist, create it with the new page
       await userDocRef.update({
         "books": {
-          "poordadrichdad": {
-            "page23": theData,
+          bookName: {
+            pageNAme : theData,
           },
         },
       });

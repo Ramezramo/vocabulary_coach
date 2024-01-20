@@ -9,12 +9,12 @@ class CongeDataBaseCubit extends Cubit<CongeDataBaseState> {
     DataBAseChanged.dbChangedOrNot = true;
     if (DataBAseChanged.dbChangedOrNot){
 
-      print("dataBAseChange");
+      // print("dataBAseChange");
       emit(DataBAseChanged());
     }
   }
   void discordChangesInDataBAse(){
-    print("discord Changes in Data Base");
+    // print("discord Changes in Data Base");
     DataBAseChanged.dbChangedOrNot = false;
   }
 }

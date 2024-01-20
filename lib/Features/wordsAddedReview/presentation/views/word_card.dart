@@ -15,9 +15,9 @@ class wordCardData extends StatelessWidget {
       children: [
         ListTile(
           onLongPress: () {
-            if (kDebugMode) {
-              print("long pressed");
-            }
+            // if (kDebugMode) {
+            //   print("long pressed");
+            // }
 
             // showAlertDialog(context,null,"besoes",websitesNames[index],false);
           },

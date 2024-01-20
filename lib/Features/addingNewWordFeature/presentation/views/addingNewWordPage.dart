@@ -2,16 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/colorConstants.dart';
-import '../../../../core/utils/databaseXoperations/WriteOnDataBase.dart';
 import '../../../../core/widgets/AddingNewWordColumnTextFAndButtons.dart';
-import '../../../../core/widgets/Reuseable_Widgets_Ram/myCatButton.dart';
-import '../../../../core/widgets/Reuseable_Widgets_Ram/myCatTextField.dart';
 import '../manger/cubit/vocab_cubet_cubit.dart';
 
 class addWordPage extends StatefulWidget {
   const addWordPage({Key? key}) : super(key: key);
-
-
   @override
   State<addWordPage> createState() => _DetailPageState();
 }
@@ -59,9 +54,7 @@ class _DetailPageState extends State<addWordPage> {
                       // height: 520,
                       decoration: const BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20),
+                          borderRadius: BorderRadius.all(Radius.circular(20)
                           )),
                       child:   ButtonAndTextField(),
                     )),

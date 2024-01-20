@@ -7,6 +7,7 @@ import 'package:vocabulary_coach/Features/chat_page/presentation/views/widgets/d
 import 'package:vocabulary_coach/Features/chat_page/presentation/views/widgets/phrases_stream.dart';
 import '../../../../core/utils/colorConstants.dart';
 import '../../../../core/utils/databaseXoperations/read_from_data_base_fb.dart';
+import '../../../../core/utils/databaseXoperations/update_data_base.dart';
 import '../manager/mapContainTheMessagesWithTheRandomCode.dart';
 
 Map<String, dynamic>? dataBaseDataObtained;
@@ -96,9 +97,9 @@ class _ChatScreenState extends State<ChatScreen> {
     // Perform cleanup when the page is closed
     messagesRandomName.clear();
 
-    if (kDebugMode) {
-      print("the Map Cleared ");
-    }
+    // if (kDebugMode) {
+    //   print("the Map Cleared ");
+    // }
     super.dispose();
   }
 

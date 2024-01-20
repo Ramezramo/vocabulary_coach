@@ -40,11 +40,7 @@ class _MessagebubbleState extends State<Messagebubble> {
 
   @override
   Widget build(BuildContext context) {
-    // print();
-
-    // dataBaseUpdater();
-    print(messagesRandomName[widget.bubbleId]);
-
+    // print(messagesRandomName[widget.bubbleId]);
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
